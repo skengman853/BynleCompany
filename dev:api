@@ -1,0 +1,8 @@
+> npm run dev -w apps/api
+
+
+> @bynle/api@0.1.0 dev
+> tsx watch src/server.ts
+
+{"level":30,"time":1770749379642,"pid":41015,"hostname":"Jacks-MacBook-Air.local","msg":"Server listening at http://0.0.0.0:4000"}
+{"level":30,"time":1770749388163,"pid":41015,"hostname":"Jacks-MacBook-Air.local","reqId":"req-1","req":{"method":"POST","url":"/v1/chat","hostname":"localhost:4000","remoteAddress":"127.0.0.1","remotePort":52205},"msg":"incoming request"}

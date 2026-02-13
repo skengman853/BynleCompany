@@ -1,0 +1,30 @@
+{
+  "name": "@bynle/admin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "next lint",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@auth/prisma-adapter": "2.9.0",
+    "@bynle/db": "*",
+    "@bynle/shared": "*",
+    "bcryptjs": "^2.4.3",
+    "next": "^14.2.5",
+    "next-auth": "5.0.0-beta.30",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20.14.9",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.6.3"
+  }
+}

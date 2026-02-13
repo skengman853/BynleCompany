@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bynle Widget Test</title>
+  </head>
+  <body style="font-family: Arial, sans-serif; padding: 24px">
+    <h1>Widget Test Page</h1>
+    <p>Widget should mount a black <code>Chat</code> button in the bottom-right corner.</p>
+    <p id="widget-status" style="padding: 8px 10px; border-radius: 8px; background: #f2f2f2">
+      Widget status: checking...
+    </p>
+
+    <script>
+      window.BynleConfig = {
+        tenantKey: "bynle_9111582e6417bd2ed512240cdfe9ff8b4cc2c7fff5e2d6b3",
+        apiBaseUrl: "http://localhost:4000",
+        title: "Bynle Assistant",
+        requireConsent: false,
+      };
+    </script>
+    <script
+      src="http://localhost:4000/widget.js?tenant=bynle_9111582e6417bd2ed512240cdfe9ff8b4cc2c7fff5e2d6b3&apiBaseUrl=http%3A%2F%2Flocalhost%3A4000"
+      defer
+    ></script>
+    <script>
+      window.addEventListener("load", function () {
+        var status = document.getElementById("widget-status");
+        setTimeout(function () {
+          var mounted = !!document.querySelector(".bynle-widget-root");
+          if (mounted) {
+            status.textContent = "Widget status: mounted";
+            status.style.background = "#e8f7e8";
+          } else {
+            status.textContent =
+              "Widget status: not mounted. Open browser console for [Bynle Widget] errors.";
+            status.style.background = "#fde7e7";
+          }
+        }, 300);
+      });
+    </script>
+  </body>
+</html>
