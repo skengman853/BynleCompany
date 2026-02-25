@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@bynle/db": "*",
+    "@bynle/shared": "*",
     "mammoth": "^1.8.0",
     "openai": "^4.56.0",
     "pdf-parse": "^1.1.1"

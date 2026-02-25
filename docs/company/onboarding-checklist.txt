@@ -1,0 +1,107 @@
+Bynle Client Onboarding Checklist
+
+═══════════════════════════════════════════════
+OVERVIEW
+═══════════════════════════════════════════════
+
+Goal: Client goes from "yes" to "live" in 48 hours.
+Total client time required: ~15 minutes.
+
+═══════════════════════════════════════════════
+STEP 1 – WELCOME & INFO GATHERING (Day 0)
+═══════════════════════════════════════════════
+
+[ ] Send welcome email with onboarding form
+[ ] Collect from client:
+    [ ] Clinic name
+    [ ] Website URL
+    [ ] Logo (PNG/SVG)
+    [ ] Brand colours (or "match our site")
+    [ ] Booking link or system (Cliniko, Jane, calendar link, etc.)
+    [ ] Contact email for lead notifications
+    [ ] Top 10–20 FAQs (or permission to write them from their site)
+    [ ] Services offered + pricing (if public)
+    [ ] Opening hours
+    [ ] Location / address
+    [ ] Tone preferences ("friendly", "professional", etc.)
+
+Tip: If they're slow on FAQs, offer to write them from their website. Removes friction.
+
+═══════════════════════════════════════════════
+STEP 2 – SYSTEM SETUP (Day 0–1)
+═══════════════════════════════════════════════
+
+[ ] Create tenant in Bynle system
+[ ] Configure AI assistant with clinic info
+[ ] Load FAQs into knowledge base
+[ ] Set up booking integration
+[ ] Configure lead capture fields
+[ ] Set up email notifications to client
+[ ] Apply branding (logo, colours)
+[ ] Test end-to-end:
+    [ ] Ask a FAQ → correct answer?
+    [ ] Request booking → correct flow?
+    [ ] Submit lead → notification received?
+    [ ] After-hours message → handled correctly?
+
+═══════════════════════════════════════════════
+STEP 3 – WIDGET INSTALLATION (Day 1)
+═══════════════════════════════════════════════
+
+Option A: You install it
+[ ] Get CMS login or FTP access
+[ ] Install widget snippet
+[ ] Verify it loads on all pages
+
+Option B: Client installs
+[ ] Send code snippet with instructions
+[ ] Provide screenshot of where to paste it
+[ ] Offer screen-share if stuck
+
+Option C: Their web developer installs
+[ ] Send snippet + instructions to their dev
+[ ] Follow up within 24 hours to confirm
+
+═══════════════════════════════════════════════
+STEP 4 – GO LIVE & HANDOFF (Day 1–2)
+═══════════════════════════════════════════════
+
+[ ] Confirm widget is live
+[ ] Do a final live test together
+[ ] Send "You're Live" email:
+    - What's set up
+    - How they'll receive leads
+    - How to reach you for support
+[ ] Set reminder: check in after 3 days
+[ ] Set reminder: check in after 2 weeks
+
+═══════════════════════════════════════════════
+STEP 5 – FIRST WEEK CHECK-IN (Day 5–7)
+═══════════════════════════════════════════════
+
+[ ] Review chat logs for bad answers
+[ ] Check lead notifications are working
+[ ] Email client:
+    - Share early stats (X conversations, Y leads)
+    - Ask if any FAQs need updating
+[ ] Fix any issues
+
+═══════════════════════════════════════════════
+STEP 6 – TWO WEEK REVIEW (Day 14)
+═══════════════════════════════════════════════
+
+[ ] Pull performance summary
+[ ] Send to client
+[ ] Ask for testimonial (if happy)
+[ ] Ask for referral (if appropriate)
+
+═══════════════════════════════════════════════
+TIMELINE SUMMARY
+═══════════════════════════════════════════════
+
+Day 0:   Welcome email + info gathering
+Day 0–1: System setup + testing
+Day 1:   Widget installation
+Day 1–2: Go live + handoff
+Day 5–7: First week check-in
+Day 14:  Two week review + testimonial ask

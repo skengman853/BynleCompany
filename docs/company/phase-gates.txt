@@ -1,0 +1,61 @@
+Bynle Phase Gates
+
+═══════════════════════════════════════════════
+PURPOSE
+═══════════════════════════════════════════════
+
+Concrete criteria for moving between phases. Hit the numbers, move forward.
+
+═══════════════════════════════════════════════
+PHASE 1 → PHASE 2: Sales Bootcamp → System Maturity
+═══════════════════════════════════════════════
+
+Move when ALL are true:
+
+[ ] 3+ paying clients on monthly plans
+[ ] MRR ≥ €300
+[ ] At least 2 clients live for 30+ days
+[ ] At least 1 written testimonial
+[ ] Onboarding takes < 3 hours (your time)
+[ ] 10+ sales conversations completed
+[ ] Can explain the product in under 60 seconds without notes
+[ ] No critical bugs in production
+
+═══════════════════════════════════════════════
+PHASE 2 → PHASE 3: System Maturity → Vertical Expansion
+═══════════════════════════════════════════════
+
+Move when ALL are true:
+
+[ ] 8+ paying clients
+[ ] MRR ≥ €800
+[ ] Churn rate < 15% monthly
+[ ] Onboarding takes < 1.5 hours (your time)
+[ ] 3+ testimonials / case studies
+[ ] Billing is automated (no manual invoicing)
+[ ] Documented playbook for sales, onboarding, and support
+[ ] At least 1 client on Premium tier
+[ ] At least 2 inbound enquiries (people coming to you)
+
+═══════════════════════════════════════════════
+PHASE 3 ENTRY: Vertical Expansion
+═══════════════════════════════════════════════
+
+You should have:
+- Confidence in sales conversations
+- Recurring revenue covering basic costs
+- Documented processes for everything
+- Proof (case studies, testimonials, data)
+
+Actions:
+- Research accountant / professional services pain points
+- Adapt AI Audit offering for new verticals
+- Build new sales materials for non-physio audiences
+- Test outreach to 2–3 accountancy firms
+- Price AI Audit at €1,500+ (you have proof now)
+
+═══════════════════════════════════════════════
+REVIEW SCHEDULE
+═══════════════════════════════════════════════
+
+Check phase gates every 2 weeks. Be honest. Don't move forward until the boxes are ticked.

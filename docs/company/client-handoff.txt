@@ -1,0 +1,87 @@
+Bynle Client Handoff Guide
+
+═══════════════════════════════════════════════
+PURPOSE
+═══════════════════════════════════════════════
+
+What the client sees, what they need to do, and what "done" looks like from their perspective.
+
+═══════════════════════════════════════════════
+WHAT THE CLIENT NEEDS TO PROVIDE
+═══════════════════════════════════════════════
+
+Required:
+- Clinic name
+- Website URL
+- Booking link or system name
+- Contact email for lead notifications
+- Logo
+- Top FAQs (or permission for us to write them)
+- Services list
+- Opening hours
+
+Optional:
+- Brand colour hex codes
+- Preferred tone of voice
+- Specific phrases to use or avoid
+
+Format: Simple form. 15 minutes max.
+
+═══════════════════════════════════════════════
+WHAT THE CLIENT SEES
+═══════════════════════════════════════════════
+
+1. Chat widget appears on their website (bottom-right)
+2. Visitors ask questions and get instant answers
+3. Widget captures visitor details (name, email, phone)
+4. Client gets an email for every new lead
+5. Visitors can book directly through chat (if integrated)
+
+That's it. No logins, no dashboards (unless Premium), no complexity.
+
+═══════════════════════════════════════════════
+WHAT THE CLIENT DOES NOT NEED TO DO
+═══════════════════════════════════════════════
+
+- No software to install
+- No training required
+- No daily management
+- No content to write (we handle it)
+- No technical knowledge needed
+
+═══════════════════════════════════════════════
+WHAT "DONE" LOOKS LIKE
+═══════════════════════════════════════════════
+
+[ ] Widget is live on their website
+[ ] AI answers their top FAQs correctly
+[ ] Lead capture sends notifications to their email
+[ ] Booking integration works (if applicable)
+[ ] Client has confirmed they're happy with a test conversation
+[ ] Client knows how to reach us for support
+
+═══════════════════════════════════════════════
+"YOU'RE LIVE" EMAIL TEMPLATE
+═══════════════════════════════════════════════
+
+Subject: Your Bynle assistant is live! 🎉
+
+Hi [Name],
+
+Your AI assistant is now live on [Clinic Name]'s website.
+
+Here's what's happening:
+- Visitors can chat with your assistant 24/7
+- It answers questions about your services, hours, and location
+- It captures contact details from potential patients
+- You'll get an email notification for every new lead
+
+What you need to do: Nothing! It runs automatically.
+
+If you want to update any answers, just reply to this email and we'll handle it within 24 hours.
+
+I'll check in with you in about a week to share some early stats.
+
+Cheers,
+[Your Name]
+Bynle

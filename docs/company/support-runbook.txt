@@ -1,0 +1,84 @@
+Bynle Support Runbook
+
+═══════════════════════════════════════════════
+SUPPORT CHANNELS
+═══════════════════════════════════════════════
+
+- Email (primary) — respond within 24 hours (business days)
+- Phone (Premium tier only) — same day
+- Critical (widget down) — within 2 hours
+
+═══════════════════════════════════════════════
+COMMON ISSUES & RESPONSES
+═══════════════════════════════════════════════
+
+1. "The chat widget isn't showing"
+----------------------------------------------
+Check:
+- Is the snippet still in their HTML?
+- Did they update their site/theme recently?
+- JS error blocking it? (browser console)
+- Is the tenant active?
+
+Fix: Re-send snippet, check for script conflicts, test in incognito.
+
+Response: "Thanks for flagging this. I'm looking into it now and will have it sorted within [X hours]."
+
+2. "The AI gave a wrong answer"
+----------------------------------------------
+Check: What was asked? What was answered? Is the correct info in the knowledge base?
+
+Fix: Update knowledge base, test, notify client.
+
+Response: "Thanks for catching that — I've updated the answer and it's live now."
+
+3. "I'm not getting lead notifications"
+----------------------------------------------
+Check: Correct email in settings? Spam folder? Email service logs?
+
+Fix: Correct email, resend test notification.
+
+Response: "Let me check the settings. Can you also check your spam folder? Sending a test now."
+
+4. "Can we change the FAQs?"
+----------------------------------------------
+Process: Client sends updated info → update within 24 hours → confirm.
+
+Response: "Of course — send me the updated info and I'll have it live within 24 hours."
+
+5. "We want to cancel"
+----------------------------------------------
+Process: Ask why (this is feedback). If fixable, offer to fix. If not, process professionally. Remove widget, deactivate tenant, send confirmation.
+
+Response: "I'm sorry to hear that. Can I ask what's not working? If it's not the right fit, I completely understand."
+
+6. "The widget looks wrong"
+----------------------------------------------
+Check: Brand colours applied? Logo rendering? CSS conflict?
+
+Fix: Adjust styling, test across browsers.
+
+Response: "I'll take a look. Can you send me a screenshot of what you're seeing?"
+
+═══════════════════════════════════════════════
+SEVERITY LEVELS
+═══════════════════════════════════════════════
+
+Low (FAQ updates, styling tweaks): within 24 hours
+Medium (wrong answers, notification issues): within 12 hours
+High (widget down, client threatening to cancel): within 2 hours
+
+═══════════════════════════════════════════════
+PROACTIVE MONITORING
+═══════════════════════════════════════════════
+
+Weekly:
+[ ] Check all active widgets are loading
+[ ] Review chat logs for bad answers
+[ ] Check notification delivery
+[ ] Review error logs
+
+Monthly:
+[ ] Pull performance stats per client
+[ ] Identify low-engagement clients (churn risk)
+[ ] Check for knowledge base gaps

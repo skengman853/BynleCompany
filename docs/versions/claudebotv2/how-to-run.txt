@@ -1,0 +1,205 @@
+Branch: claudebotv2
+How to Run & Test
+═══════════════════════════════════════════════
+
+═══════════════════════════════════════════════
+PREREQUISITES
+═══════════════════════════════════════════════
+
+- Node.js >= 20
+- PostgreSQL running locally (or a remote connection string)
+- npm (comes with Node)
+
+═══════════════════════════════════════════════
+1. SWITCH TO BRANCH
+═══════════════════════════════════════════════
+
+  git checkout claudebotv2
+
+═══════════════════════════════════════════════
+2. INSTALL DEPENDENCIES
+═══════════════════════════════════════════════
+
+  npm install
+
+This picks up the new dependencies:
+- nodemailer (lead email notifications)
+- @types/nodemailer
+- openai in @bynle/shared (deduplicated embeddings)
+
+═══════════════════════════════════════════════
+3. CONFIGURE ENVIRONMENT
+═══════════════════════════════════════════════
+
+  cp .env.example .env
+
+Then fill in your .env:
+
+Required:
+  DATABASE_URL=postgresql://postgres:postgres@localhost:5432/bynle
+  AUTH_SECRET=some-random-secret-string
+  OPENAI_API_KEY=sk-your-key-here
+
+Optional (new in this branch):
+  RATE_LIMIT_RPM=60              # API rate limit per IP per minute
+  SMTP_HOST=smtp.gmail.com       # For lead notification emails
+  SMTP_PORT=587
+  SMTP_USER=your-email@gmail.com
+  SMTP_PASS=your-app-password
+  SMTP_FROM=notifications@bynle.com
+
+═══════════════════════════════════════════════
+4. SET UP DATABASE
+═══════════════════════════════════════════════
+
+  npx prisma generate --schema packages/db/prisma/schema.prisma
+  npm run db:push -w packages/db
+
+═══════════════════════════════════════════════
+5. CREATE AN ADMIN USER + TENANT
+═══════════════════════════════════════════════
+
+  node packages/db/scripts/create-admin.mjs your-email@example.com your-password "Test Clinic"
+
+This prints a tenant key — save it, you'll need it for the widget.
+
+To set the tenant's alert email (for lead notifications):
+
+  npx prisma studio --schema packages/db/prisma/schema.prisma
+
+Then edit the tenant row and set alertEmail to your email.
+
+═══════════════════════════════════════════════
+6. START THE SERVICES
+═══════════════════════════════════════════════
+
+Open 3 terminals:
+
+Terminal 1 — API:
+  npm run dev:api
+
+Terminal 2 — Worker:
+  npm run dev:worker
+
+Terminal 3 — Admin dashboard:
+  npm run dev:admin
+
+Services:
+  API:    http://localhost:4000
+  Admin:  http://localhost:3000
+  Worker: runs in background (polls for jobs)
+
+═══════════════════════════════════════════════
+7. VERIFY IT'S WORKING
+═══════════════════════════════════════════════
+
+Health check:
+  curl http://localhost:4000/health
+  → {"ok":true}
+
+Rate limit headers (hit any endpoint):
+  curl -v http://localhost:4000/health
+  → Look for x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset
+
+Test chat (replace YOUR_TENANT_KEY):
+  curl -X POST http://localhost:4000/v1/chat \
+    -H "Content-Type: application/json" \
+    -d '{
+      "tenantKey": "YOUR_TENANT_KEY",
+      "sessionId": "test_session_1",
+      "message": "What are your opening hours?"
+    }'
+
+Test lead capture:
+  curl -X POST http://localhost:4000/v1/leads \
+    -H "Content-Type: application/json" \
+    -d '{
+      "tenantKey": "YOUR_TENANT_KEY",
+      "sessionId": "test_session_1",
+      "name": "Test Lead",
+      "phone": "+353 1 234 5678",
+      "email": "test@example.com",
+      "message": "I would like to book"
+    }'
+
+  → If SMTP is configured and tenant has alertEmail set, you should receive an email.
+
+Test error format (bad request):
+  curl -X POST http://localhost:4000/v1/chat \
+    -H "Content-Type: application/json" \
+    -d '{}'
+
+  → Should return: {"error":"Invalid request","code":"VALIDATION_ERROR","details":{...}}
+
+Test rate limiting (hit it 61 times quickly):
+  for i in $(seq 1 65); do curl -s -o /dev/null -w "%{http_code}\n" http://localhost:4000/health; done
+
+  → First 60 return 200, then 429
+
+═══════════════════════════════════════════════
+8. TEST THE ADMIN DASHBOARD
+═══════════════════════════════════════════════
+
+1. Go to http://localhost:3000
+2. Log in with the email/password from step 5
+3. Check each page:
+   - Settings — save business details
+   - FAQs — add a question and answer
+   - Documents — upload a .txt file, watch status go from PENDING → INDEXED
+   - Analytics — should show your test conversations
+   - Billing — shows usage against plan limits
+   - Observability — latency and error metrics
+   - Widget — should show your tenant key (last 4 chars) and correct API URL
+
+═══════════════════════════════════════════════
+9. TEST THE WIDGET
+═══════════════════════════════════════════════
+
+Open docs/widget-test.html in a browser, or create a simple HTML file:
+
+  <html>
+  <body>
+    <h1>Widget Test</h1>
+    <script>
+      window.BynleConfig = {
+        tenantKey: "YOUR_TENANT_KEY",
+        apiBaseUrl: "http://localhost:4000",
+        requireConsent: false
+      };
+    </script>
+    <script src="http://localhost:4000/widget.js" defer></script>
+  </body>
+  </html>
+
+Click "Chat", type a message, verify it responds.
+
+═══════════════════════════════════════════════
+10. RUN CI CHECKS
+═══════════════════════════════════════════════
+
+  npm run ci
+
+This runs:
+- TypeScript type checking (api + worker)
+- Unit tests (billing policy + embeddings utils)
+
+═══════════════════════════════════════════════
+TROUBLESHOOTING
+═══════════════════════════════════════════════
+
+"Prisma client is missing Job model"
+→ Run: npx prisma generate --schema packages/db/prisma/schema.prisma
+
+Documents stuck on PENDING
+→ Make sure the worker is running (terminal 2)
+→ Or run: node packages/db/scripts/requeue-pending-docs.mjs
+
+No email notifications
+→ Check SMTP env vars are set
+→ Check tenant has alertEmail set in the database
+→ Check API logs for "Failed to send lead notification"
+
+Widget not loading
+→ Check browser console for errors
+→ Verify tenantKey is correct
+→ Verify API is running on the correct port

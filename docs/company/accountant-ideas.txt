@@ -1,0 +1,189 @@
+Bynle for Accountants — Product Ideas
+
+═══════════════════════════════════════════════
+WHY ACCOUNTANTS
+═══════════════════════════════════════════════
+
+- Higher willingness to pay (they understand ROI, bill €150-300/hr)
+- Longer contracts (clients don't switch accountants easily)
+- Seasonal pain is extreme (January–October is chaos)
+- Strong referral networks (they talk to each other)
+- Document chasing alone is worth €200-500/month to solve
+
+Timing: Approach in September–October, before tax season panic starts.
+
+═══════════════════════════════════════════════
+CORE PAIN POINTS
+═══════════════════════════════════════════════
+
+1. Answering the same client questions hundreds of times a year
+2. Phone ringing non-stop during tax season
+3. Chasing clients for documents (P60s, receipts, bank statements)
+4. New client onboarding is slow manual back-and-forth
+5. Missing deadlines or manually tracking them per client
+6. Wasting billable hours on admin that earns nothing
+7. No time for marketing or new client acquisition
+
+═══════════════════════════════════════════════
+PRODUCT IDEAS
+═══════════════════════════════════════════════
+
+1. AI Tax FAQ Chatbot (already built)
+----------------------------------------------
+What: Website chatbot trained on Irish tax FAQs and the firm's specific services.
+Answers: "When is the deadline?", "What expenses can I claim?", "Do I need to file?", "What are your fees?"
+Value: Stops the same 20 questions being asked hundreds of times.
+Effort: Low — reuse existing Bynle Assist product.
+Price: €99-179/month.
+
+2. Client Document Collection Portal
+----------------------------------------------
+What: AI-powered intake that tells clients exactly what to upload, checks what's missing, and chases them automatically.
+Flow:
+  - Accountant triggers "document request" for a client
+  - Client gets a link with a checklist (P60, bank statements, receipts, etc.)
+  - AI checks uploads and flags missing/wrong items
+  - Auto-reminder emails if client hasn't completed in 3/7/14 days
+  - Accountant gets notified when everything's in
+Value: Accountants spend weeks chasing documents. This does it automatically.
+Effort: Medium — file upload + checklist logic + reminder emails.
+Price: €200-400/month or €3k-5k implementation.
+
+3. New Client Onboarding Flow
+----------------------------------------------
+What: AI chatbot qualifies leads and collects structured info before the first call.
+Questions:
+  - Are you self-employed, PAYE, or a company?
+  - What's your annual turnover?
+  - Do you have employees?
+  - Are your books up to date?
+  - What services do you need? (tax returns, bookkeeping, payroll, etc.)
+Output: Structured brief sent to the accountant — ready for a 10-minute call instead of a 30-minute discovery.
+Value: Saves 20+ minutes per new client. Filters tyre-kickers.
+Effort: Low-medium — conversation flow + structured output.
+Price: Included in chatbot tier or €500 setup.
+
+4. Deadline Reminder System
+----------------------------------------------
+What: Auto-email clients before key tax dates.
+Dates:
+  - Preliminary tax (31 Oct / 15 Nov ROS)
+  - Income tax return (31 Oct / 15 Nov ROS)
+  - Corporation tax (9 months after year-end)
+  - VAT returns (bi-monthly/quarterly)
+  - Employer PAYE returns (monthly)
+Flow:
+  - Accountant sets client type and relevant deadlines
+  - System sends reminders at 30/14/7/1 days before
+  - Client gets a clear email: "Your tax return is due in 14 days. Here's what we need from you."
+Value: No more missed deadlines. No more manual tracking.
+Effort: Low — cron job + email templates + tenant-scoped calendar.
+Price: €50-100/month add-on.
+
+5. AI Email Triage
+----------------------------------------------
+What: Scan the firm's inbox, categorise emails, draft responses.
+Categories:
+  - New enquiry → route to onboarding flow
+  - Document submission → attach to client file
+  - Routine question → draft AI response for approval
+  - Urgent → flag immediately
+Flow:
+  - Connect via IMAP or forwarding rule
+  - AI classifies and drafts
+  - Accountant reviews and sends with one click
+Value: 50+ emails/day during busy season. Most are routine.
+Effort: Medium-high — email integration + classification + drafting.
+Price: €300-500/month or €5k-8k implementation.
+
+6. Fee Quote Calculator
+----------------------------------------------
+What: Website widget where prospects answer 5 questions and get an estimated fee range.
+Questions:
+  - What type of entity? (sole trader, company, partnership)
+  - Annual turnover range?
+  - Number of employees?
+  - Services needed?
+  - Current state of books?
+Output: "Based on your answers, our estimated annual fee is €X–€Y. Want to book a call?"
+Value: Filters out people who can't afford the firm. Qualifies leads before they call.
+Effort: Low — form + pricing rules + lead capture.
+Price: Included in chatbot or €300 setup.
+
+7. Client Portal with AI Assistant
+----------------------------------------------
+What: Branded portal where clients can log in, see their deadlines, upload documents, and ask questions.
+Features:
+  - Personal dashboard per client
+  - Document upload with status tracking
+  - AI assistant trained on their specific situation
+  - Deadline calendar
+  - Secure messaging with the accountant
+Value: Professional, modern experience. Differentiates the firm.
+Effort: High — but builds on existing multi-tenant system.
+Price: €400-600/month or €8k-12k implementation.
+
+═══════════════════════════════════════════════
+PACKAGING IDEAS
+═══════════════════════════════════════════════
+
+Starter — €149/month
+  - AI chatbot on website (tax FAQs + firm info)
+  - Lead capture + email notifications
+  - Fee quote calculator
+
+Professional — €349/month
+  - Everything in Starter
+  - Document collection portal
+  - Deadline reminder system
+  - New client onboarding flow
+
+Enterprise — €599/month
+  - Everything in Professional
+  - AI email triage
+  - Client portal
+  - Monthly strategy call
+
+Implementation projects: €3k-12k depending on scope.
+AI Audit for accountants: €1,500-2,500.
+
+═══════════════════════════════════════════════
+POSITIONING
+═══════════════════════════════════════════════
+
+Don't say: "We build chatbots for accountants."
+
+Say: "We build AI systems that handle your client communications, document collection, and onboarding — so you can focus on the actual accounting work instead of admin."
+
+Or: "We help accounting firms reclaim 10+ hours a week of admin time using practical AI automation."
+
+═══════════════════════════════════════════════
+SALES APPROACH
+═══════════════════════════════════════════════
+
+When: September–October (before tax season)
+Who: Small-medium firms, 2-10 staff
+Where: Dublin first, then expand
+
+Opening line:
+"I work with professional services firms in Dublin. Quick question — during tax season, how much time does your team spend answering the same client questions and chasing documents?"
+
+Proof:
+"We helped physio clinics capture 30% more leads and cut admin time in half. Here's what we can do for your practice before January."
+
+═══════════════════════════════════════════════
+BUILD ORDER
+═══════════════════════════════════════════════
+
+Phase 3a (first accountant clients):
+  1. AI chatbot (already built)
+  2. Fee quote calculator (quick win)
+  3. New client onboarding flow (low effort, high value)
+
+Phase 3b (once you have 2-3 accountant clients):
+  4. Document collection portal (the big differentiator)
+  5. Deadline reminder system
+
+Phase 3c (scale):
+  6. AI email triage
+  7. Client portal

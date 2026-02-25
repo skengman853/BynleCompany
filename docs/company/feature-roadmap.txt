@@ -1,0 +1,60 @@
+Bynle Feature Roadmap
+
+═══════════════════════════════════════════════
+WHAT EXISTS NOW
+═══════════════════════════════════════════════
+
+[✓] Multi-tenant system
+[✓] Chat engine
+[✓] Booking integration
+[✓] Lead capture
+[✓] Dashboard
+[✓] Docs
+[✓] Sales scripts
+[✓] Onboarding flows
+
+═══════════════════════════════════════════════
+PHASE 1 – Sales Bootcamp (Current)
+═══════════════════════════════════════════════
+
+Priority: Sell what exists. Only fix what blocks a sale or breaks in production.
+
+[ ] Demo-ready widget (polished enough for a live demo)
+[ ] Reliable email notifications for leads
+[ ] Clean onboarding form for clients
+[ ] Basic analytics (conversations count, leads captured)
+
+═══════════════════════════════════════════════
+PHASE 2 – System Maturity
+═══════════════════════════════════════════════
+
+[ ] Improved booking reliability
+[ ] Faster onboarding (target: < 1.5 hours)
+[ ] Automated billing (Stripe integration)
+[ ] Client-facing dashboard with basic stats
+[ ] Weekly automated lead summary emails
+[ ] Knowledge base editor (internal, for faster FAQ updates)
+[ ] Multi-browser/device testing pass
+
+═══════════════════════════════════════════════
+PHASE 3 – Vertical Expansion
+═══════════════════════════════════════════════
+
+[ ] Configurable conversation flows per vertical
+[ ] Multi-location support
+[ ] Advanced analytics (conversion rates, peak times)
+[ ] Client self-service FAQ editor
+[ ] API for custom integrations
+[ ] White-label option (for agencies)
+
+═══════════════════════════════════════════════
+BACKLOG (No Phase Assigned)
+═══════════════════════════════════════════════
+
+- SMS notifications
+- WhatsApp integration
+- Multi-language support
+- Voice assistant
+- CRM integrations (HubSpot, etc.)
+
+Rule: Nothing moves from backlog to a phase unless a paying client asks for it or it directly enables revenue.

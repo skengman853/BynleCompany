@@ -15,9 +15,7 @@ export class OpenAIEmbeddingsProvider implements EmbeddingsProvider {
   }
 
   async embed(input: string[]): Promise<EmbeddingVector[]> {
-    if (!this.client || input.length === 0) {
-      return [];
-    }
+    if (!this.client || input.length === 0) return [];
 
     const response = await this.client.embeddings.create({
       model: this.modelName,

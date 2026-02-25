@@ -1,0 +1,252 @@
+What Bynle Is Trying To Become
+
+Bynle is not:
+
+A chatbot tool
+
+A random AI agency
+
+A freelance dev shop
+
+A side project
+
+Bynle is trying to become:
+
+An AI automation company for service businesses in Ireland.
+
+That’s the mission.
+
+🎯 The Core Problem We’re Solving
+
+Most service businesses:
+
+Miss enquiries
+
+Answer the same questions daily
+
+Have booking friction
+
+Lose after-hours leads
+
+Spend too much time on admin
+
+Don’t optimise website conversion
+
+We are solving:
+
+👉 Revenue leakage
+👉 Admin overload
+👉 Conversion inefficiency
+
+Using practical AI automation.
+
+Not hype AI.
+Not futuristic AI.
+
+Practical business automation.
+
+🧠 The Strategic Plan
+
+We are not trying to build everything at once.
+
+We are executing in phases.
+
+Phase 1 – Sales Bootcamp (Now)
+
+Focus:
+Physiotherapy clinics in Dublin.
+
+Why?
+
+Fast sales cycle
+
+Clear pain
+
+Clear ROI
+
+Good training ground
+
+Goals:
+
+3–5 paying clients
+
+Real-world deployment reps
+
+Sales confidence
+
+Testimonials
+
+Refined onboarding
+
+This phase is about:
+
+Learning how to sell.
+Learning how to deploy.
+Learning how businesses think.
+
+Not about scaling yet.
+
+Phase 2 – System Maturity
+
+Once a few clinics are live:
+
+Improve booking reliability
+
+Improve onboarding speed
+
+Add billing automation
+
+Refine dashboard UX
+
+Collect case studies
+
+Now you move from “trying” to “professional.”
+
+Phase 3 – Vertical Expansion
+
+Once you:
+
+Feel confident in meetings
+
+Have recurring revenue
+
+Have documented processes
+
+Then you approach:
+
+👉 Accountants
+👉 Professional services
+
+With:
+
+AI Audit + Workflow Automation
+
+Now you’re not:
+“A chatbot guy”
+
+You’re:
+“AI automation partner”
+
+That’s a completely different level.
+
+🧱 The Architecture Behind It
+
+You’ve already built:
+
+Multi-tenant system
+
+Chat engine
+
+Booking integration
+
+Lead capture
+
+Dashboard
+
+Docs
+
+Sales scripts
+
+Onboarding flows
+
+You’re building infrastructure.
+
+Not just UI.
+
+That’s long-term leverage.
+
+💰 The Business Model
+
+There are two revenue engines:
+
+1️⃣ Product (Recurring)
+
+Bynle Assist:
+€79–€149/month
+
+Predictable revenue.
+
+2️⃣ Consulting (High Ticket)
+
+AI Audit:
+€1k–€2k
+
+Implementation:
+€3k–€10k+
+
+This funds bigger growth.
+
+🧠 Why This Strategy Makes Sense For You
+
+You:
+
+Think in systems
+
+Like architecture
+
+Like structured builds
+
+Are technical
+
+Are ambitious
+
+But you lack:
+
+Sales reps
+
+Real-world closing confidence
+
+So Phase 1 fixes that.
+
+You build the sales muscle first.
+Then you go bigger.
+
+🚀 The Real Long-Term Vision
+
+Long term Bynle could become:
+
+Vertical AI automation company
+
+With productised systems
+
+Serving specific industries
+
+With recurring SaaS revenue
+
+Plus selective consulting
+
+That’s a real business.
+Not a freelance gig.
+
+🔥 What This Current Moment Is
+
+Right now, you are in:
+
+Execution Transition Phase
+
+You’ve stopped tinkering.
+You’ve structured docs.
+You’ve versioned.
+You’ve repositioned.
+
+Now:
+
+It’s time to sell.
+
+🧨 The Real Bottleneck
+
+Not tech.
+
+Not design.
+
+Not pricing.
+
+It’s this:
+
+You have not yet had 10 uncomfortable sales conversations.
+
+That’s what changes everything.
+
+🎯 The Big Picture in One Sentence
+
+We are building Bynle into a structured AI automation company, starting with physio sales to build confidence and revenue, then expanding into higher-value professional services once we have proof and momentum.

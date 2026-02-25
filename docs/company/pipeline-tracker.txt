@@ -1,0 +1,69 @@
+Bynle Sales Pipeline Tracker
+
+═══════════════════════════════════════════════
+STAGES
+═══════════════════════════════════════════════
+
+[LEAD]      → Identified, not yet contacted
+[CONTACTED] → Outreach sent (email/call/walk-in)
+[REPLIED]   → They responded
+[DEMO]      → Demo scheduled or completed
+[PROPOSAL]  → Sent pricing / proposal
+[CLOSED]    → Signed up and paying
+[LOST]      → Said no or went cold
+
+Update weekly. Never delete — mark as [LOST] with a reason.
+
+═══════════════════════════════════════════════
+ACTIVE PIPELINE
+═══════════════════════════════════════════════
+
+#  | Clinic Name        | Contact       | Stage       | Last Action          | Next Step            | Date
+---|--------------------|---------------|-------------|----------------------|----------------------|-----------
+1  |                    |               | [LEAD]      |                      |                      |
+2  |                    |               | [LEAD]      |                      |                      |
+3  |                    |               | [LEAD]      |                      |                      |
+4  |                    |               | [LEAD]      |                      |                      |
+5  |                    |               | [LEAD]      |                      |                      |
+
+═══════════════════════════════════════════════
+CLOSED DEALS
+═══════════════════════════════════════════════
+
+#  | Clinic Name        | Plan          | MRR    | Start Date  | Notes
+---|--------------------|--------------:|-------:|-------------|------
+   |                    |               |        |             |
+
+═══════════════════════════════════════════════
+LOST DEALS
+═══════════════════════════════════════════════
+
+#  | Clinic Name        | Stage Lost At | Reason                    | Date
+---|--------------------|---------------|---------------------------|----------
+   |                    |               |                           |
+
+═══════════════════════════════════════════════
+WEEKLY STATS
+═══════════════════════════════════════════════
+
+Week of: ___________
+
+Outreach sent:      ___
+Replies received:   ___
+Demos booked:       ___
+Demos completed:    ___
+Proposals sent:     ___
+Deals closed:       ___
+Revenue added:      €___
+
+Notes:
+
+
+═══════════════════════════════════════════════
+TARGETS (Phase 1)
+═══════════════════════════════════════════════
+
+Goal: 3–5 paying clients
+Timeline: 8 weeks
+Weekly outreach target: 10 clinics minimum
+Demo target: 2–3 per week
