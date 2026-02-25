@@ -43,6 +43,9 @@ Multi-tenant chatbot platform with a client widget, tenant admin, and a policy-a
 - Run checks locally: `npm run ci`
 - CI workflow: `.github/workflows/ci.yml`
 
+## Deployment
+- Render runbook (database + backend + admin): `docs/deployment-render.md`
+
 ## Widget install
 Serve script from API:
 - `http://localhost:4000/widget.js`
