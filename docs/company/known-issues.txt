@@ -1,0 +1,62 @@
+Bynle Known Issues
+
+═══════════════════════════════════════════════
+PURPOSE
+═══════════════════════════════════════════════
+
+Bugs, limitations, and things that would embarrass you in a demo. Fix these before they cost you a deal.
+
+═══════════════════════════════════════════════
+FORMAT
+═══════════════════════════════════════════════
+
+[SEVERITY] Issue description
+Status: Open / In Progress / Fixed
+Impact: What happens if a client hits this?
+Fix: What needs to be done?
+
+Severity levels:
+[CRITICAL] — Would break a demo or lose a client
+[HIGH]     — Noticeable, makes us look unprofessional
+[MEDIUM]   — Annoying but not a dealbreaker
+[LOW]      — Nice to fix, not urgent
+
+═══════════════════════════════════════════════
+ISSUES
+═══════════════════════════════════════════════
+
+# Add issues below as you find them:
+
+[SEVERITY] 
+Status: Open
+Impact: 
+Fix: 
+
+----------------------------------------------
+
+[SEVERITY] 
+Status: Open
+Impact: 
+Fix: 
+
+----------------------------------------------
+
+[SEVERITY] 
+Status: Open
+Impact: 
+Fix: 
+
+═══════════════════════════════════════════════
+PRE-DEMO CHECKLIST
+═══════════════════════════════════════════════
+
+Before every demo, verify:
+
+[ ] Widget loads without errors
+[ ] Chat responds within 3 seconds
+[ ] FAQ answers are accurate
+[ ] Lead capture form works
+[ ] Email notification fires
+[ ] Booking flow completes
+[ ] No console errors visible
+[ ] Mobile view looks clean

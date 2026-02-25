@@ -1,0 +1,159 @@
+Bynle Sales Playbook – Physio Clinics (Phase 1)
+
+═══════════════════════════════════════════════
+1. TARGET PROFILE
+═══════════════════════════════════════════════
+
+Who we're selling to:
+- Physiotherapy clinics in Dublin
+- 1–5 physios on staff
+- Have a website (even a basic one)
+- Use online booking (Cliniko, Jane, PhysioTrack, or manual)
+- Busy enough to miss calls/enquiries
+
+Ideal contact:
+- Clinic owner or practice manager
+- Usually the senior physio
+
+Red flags (skip these):
+- No website at all
+- Just opened (no patient flow yet)
+- Already have a full-time receptionist and are happy with it
+
+═══════════════════════════════════════════════
+2. OUTREACH METHODS
+═══════════════════════════════════════════════
+
+Method A – Cold Email
+----------------------------------------------
+Subject: Quick question about [Clinic Name]
+
+Hi [Name],
+
+I was looking at [Clinic Name]'s website and had a quick question — when someone visits your site outside of hours, what happens to that enquiry?
+
+We work with physio clinics in Dublin to make sure no lead slips through — using a simple AI assistant that answers questions, captures details, and books appointments automatically.
+
+Would you be open to a 10-minute call this week to see if it's relevant?
+
+Cheers,
+[Your Name]
+Bynle
+
+Method B – Cold Call Script
+----------------------------------------------
+"Hi, is that [Name]? My name's [Your Name] from Bynle.
+
+I'll be quick — we help physio clinics in Dublin capture more bookings from their website, especially outside of hours. We use a simple AI assistant that sits on your site, answers patient questions, and feeds leads straight to you.
+
+I'm not trying to sell you anything on this call — I just wanted to ask: do you find you're missing enquiries that come in after hours or when you're with patients?"
+
+[Let them talk. Listen. Ask follow-ups.]
+
+"Would it make sense to jump on a quick 15-minute Zoom so I can show you what it looks like? No pressure at all."
+
+Method C – Walk-In / Drop-In
+----------------------------------------------
+Best for clinics within driving distance.
+Bring: A one-page flyer or your phone with a demo ready.
+
+Script:
+"Hi, I'm [Name] from Bynle — we help physio clinics capture more bookings using AI on their website. I was in the area and wanted to drop this off for [Owner Name]. Is there a good time to chat with them for 5 minutes?"
+
+Goal: Get the owner's name and email. Follow up same day.
+
+═══════════════════════════════════════════════
+3. DISCOVERY QUESTIONS (For Calls/Demos)
+═══════════════════════════════════════════════
+
+- How do new patients typically find you?
+- What happens when someone visits your website outside hours?
+- Do you get a lot of repeat questions (pricing, availability, location)?
+- How do you currently handle bookings — phone, email, online?
+- Have you ever felt like you're losing leads because you can't respond fast enough?
+- How much time do you or your staff spend on admin per day?
+
+Listen for:
+- "We miss calls when we're with patients"
+- "People email and we get back to them next day"
+- "We don't have a receptionist"
+- "Our website doesn't really do much"
+
+These are buying signals.
+
+═══════════════════════════════════════════════
+4. DEMO STRUCTURE (15 mins)
+═══════════════════════════════════════════════
+
+Minute 0–2: Rapport
+- "Thanks for jumping on. Before I show you anything, can I ask a couple of quick questions?"
+
+Minute 2–5: Discovery
+- Use questions from Section 3
+- Identify their top 1–2 pain points
+
+Minute 5–10: Show the product
+- Screen share a live demo widget
+- Show it answering a real physio question
+- Show it capturing a lead
+- Show it suggesting a booking
+- "This runs 24/7 on your site. No extra staff needed."
+
+Minute 10–13: Tie back to their pain
+- "You mentioned you miss after-hours enquiries — this catches every single one."
+- "You said you answer the same questions daily — this handles that automatically."
+
+Minute 13–15: Close or next step
+- "We're offering this at €99/month with setup included. Want to get it live on your site this week?"
+- If not ready: "No problem. Can I send you a quick summary and follow up Friday?"
+
+═══════════════════════════════════════════════
+5. OBJECTION HANDLING
+═══════════════════════════════════════════════
+
+"It's too expensive"
+→ "What's one new patient worth to you? If this captures even one extra booking a month, it's paid for itself."
+
+"I need to think about it"
+→ "Of course. What specifically would help you decide? Can I check back Thursday?"
+
+"We already have a website / booking system"
+→ "This sits on top of what you already have. It doesn't replace anything, it just makes sure visitors actually convert."
+
+"I don't trust AI / chatbots"
+→ "This isn't a generic chatbot — it's trained specifically on your clinic's info. Want me to show you a quick example?"
+
+"We're too busy right now"
+→ "That's exactly why this helps — it handles the enquiries so you don't have to. Setup takes about a day on our end, minimal input from you."
+
+"I need to talk to my partner"
+→ "Makes sense. Would a one-page summary help? Can we book a follow-up for next week?"
+
+═══════════════════════════════════════════════
+6. FOLLOW-UP CADENCE
+═══════════════════════════════════════════════
+
+Day 0: Initial outreach (email/call/walk-in)
+Day 1: If no reply, short follow-up email
+Day 3: Second follow-up — add a small insight or stat
+Day 7: Final follow-up — "No worries if the timing isn't right"
+
+After demo:
+Day 0: Send summary email with next steps
+Day 2: "Any questions from the demo?"
+Day 5: "Would you like to get started this week?"
+Day 10: "I'll leave this with you. Happy to chat whenever."
+
+Rule: Never follow up more than 4 times without a response. Move on.
+
+═══════════════════════════════════════════════
+7. CLOSING
+═══════════════════════════════════════════════
+
+"Great — here's how it works:
+1. I'll send you a short onboarding form (takes 5 mins)
+2. We set up your assistant with your clinic's info
+3. We add the widget to your site
+4. You're live within 48 hours
+
+I'll send the form over now. Sound good?"

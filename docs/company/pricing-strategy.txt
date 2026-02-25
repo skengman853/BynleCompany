@@ -1,0 +1,102 @@
+Bynle Pricing Strategy
+
+═══════════════════════════════════════════════
+1. PRODUCT TIERS – Bynle Assist
+═══════════════════════════════════════════════
+
+Starter – €79/month
+----------------------------------------------
+- AI chat widget on website
+- Trained on clinic FAQs (up to 20 Q&As)
+- Lead capture (name, email, phone, message)
+- Email notifications for new leads
+- Basic branding (logo + colours)
+- Email support
+
+Best for: Solo physios, small clinics testing the waters.
+
+Professional – €129/month
+----------------------------------------------
+- Everything in Starter
+- Booking integration (Cliniko, Jane, or calendar link)
+- Up to 50 Q&As
+- After-hours auto-responses
+- Weekly lead summary report
+- Priority email support
+
+Best for: Busy clinics that want bookings handled automatically.
+
+Premium – €179/month
+----------------------------------------------
+- Everything in Professional
+- Multi-location support
+- Custom conversation flows
+- Monthly performance review call (15 min)
+- Dashboard access with analytics
+- Phone support
+
+Best for: Multi-physio practices wanting full service.
+
+═══════════════════════════════════════════════
+2. SETUP FEES
+═══════════════════════════════════════════════
+
+Phase 1 (now): No setup fee.
+→ Removing friction to get first 3–5 clients. Testimonials are worth more than a one-time fee.
+
+Phase 2 (5+ clients): Introduce €199 one-time setup fee.
+
+Phase 3: Setup fee €299–€499 depending on complexity.
+
+═══════════════════════════════════════════════
+3. CONSULTING / HIGH-TICKET SERVICES
+═══════════════════════════════════════════════
+
+AI Audit – €1,000–€2,000
+----------------------------------------------
+- Full review of a business's workflows
+- Identify where AI/automation saves time or money
+- Deliverable: Written report with recommendations + ROI estimates
+- Scope: 1–2 discovery calls, workflow mapping, 5–10 page report
+- Timeline: 1–2 weeks
+
+Implementation – €3,000–€10,000+
+----------------------------------------------
+- Build and deploy custom AI automation based on audit
+- Simple (1 workflow): €3,000
+- Medium (2–3 workflows): €5,000–€7,000
+- Complex (full system): €8,000–€10,000+
+- Always quote per-project, not hourly
+- Always scope after the audit, never before
+
+═══════════════════════════════════════════════
+4. DISCOUNTS & INCENTIVES
+═══════════════════════════════════════════════
+
+Annual: Pay yearly = 2 months free (~17% off). Only offer if client asks.
+
+Referral: Client refers a clinic that signs up = 1 month free for both.
+
+Early adopter: First 5 clients get "founding client" rate locked for 12 months. Use as urgency in sales.
+
+═══════════════════════════════════════════════
+5. PRICE TESTING PLAN
+═══════════════════════════════════════════════
+
+Clients 1–5: Lead with €99/month (Professional). If nobody flinches, you're too cheap.
+Clients 5–10: Test €129/month as default. Offer €99 only if they hesitate.
+Phase 2: Introduce all three tiers. Let Professional be the obvious choice.
+
+Rule: Never discount without removing something. Lower price = fewer features.
+
+═══════════════════════════════════════════════
+6. WHEN TO RAISE PRICES
+═══════════════════════════════════════════════
+
+Raise when:
+- 5+ paying clients
+- 2+ testimonials
+- Onboarding under 2 hours
+- Getting inbound interest
+
+Existing clients keep their rate for 12 months. New clients get the new rate.

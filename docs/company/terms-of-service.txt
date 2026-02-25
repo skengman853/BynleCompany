@@ -1,0 +1,97 @@
+Bynle Terms of Service
+
+═══════════════════════════════════════════════
+NOTE
+═══════════════════════════════════════════════
+
+This is a working draft. Get a solicitor to review before using with paying clients. This covers the basics but is not legal advice.
+
+═══════════════════════════════════════════════
+1. SERVICE DESCRIPTION
+═══════════════════════════════════════════════
+
+Bynle provides an AI-powered chat assistant ("the Service") that is installed on the Client's website. The Service answers visitor questions, captures lead information, and facilitates appointment bookings based on information provided by the Client.
+
+═══════════════════════════════════════════════
+2. SUBSCRIPTION & BILLING
+═══════════════════════════════════════════════
+
+- The Service is provided on a monthly subscription basis.
+- Billing occurs monthly in advance.
+- Prices are as quoted at the time of sign-up and may be adjusted with 30 days' written notice.
+- No refunds for partial months.
+
+═══════════════════════════════════════════════
+3. CLIENT RESPONSIBILITIES
+═══════════════════════════════════════════════
+
+The Client agrees to:
+- Provide accurate and up-to-date information for the AI assistant.
+- Notify Bynle of any changes to services, pricing, or hours.
+- Ensure they have the right to use any logos, images, or content provided to Bynle.
+- Not use the Service for any unlawful purpose.
+
+═══════════════════════════════════════════════
+4. BYNLE RESPONSIBILITIES
+═══════════════════════════════════════════════
+
+Bynle agrees to:
+- Maintain the Service in reasonable working order.
+- Respond to support requests within the timeframes outlined in the Client's plan.
+- Notify the Client of any planned downtime or significant changes.
+- Handle Client data in accordance with applicable data protection laws.
+
+═══════════════════════════════════════════════
+5. DATA & PRIVACY
+═══════════════════════════════════════════════
+
+- Bynle processes personal data (visitor names, emails, phone numbers) on behalf of the Client.
+- Bynle acts as a Data Processor. The Client is the Data Controller.
+- Data is stored securely and is not shared with third parties except as required to provide the Service.
+- See data-handling.txt for full data processing details.
+- The Client is responsible for having an appropriate privacy policy on their website.
+
+═══════════════════════════════════════════════
+6. INTELLECTUAL PROPERTY
+═══════════════════════════════════════════════
+
+- Bynle retains ownership of the Service, software, and underlying technology.
+- The Client retains ownership of their content, branding, and data.
+- The Client grants Bynle a licence to use their content solely for providing the Service.
+
+═══════════════════════════════════════════════
+7. LIMITATION OF LIABILITY
+═══════════════════════════════════════════════
+
+- The Service is provided "as is." Bynle does not guarantee that the AI will answer every question correctly.
+- Bynle is not liable for lost revenue, missed bookings, or any indirect damages arising from use of the Service.
+- Bynle's total liability is limited to the fees paid by the Client in the preceding 3 months.
+
+═══════════════════════════════════════════════
+8. CANCELLATION
+═══════════════════════════════════════════════
+
+- Either party may cancel with 14 days' written notice.
+- Upon cancellation, Bynle will remove the chat widget and deactivate the Client's account.
+- Client data will be retained for 30 days after cancellation, then deleted.
+- The Client may request immediate data deletion.
+
+═══════════════════════════════════════════════
+9. CHANGES TO TERMS
+═══════════════════════════════════════════════
+
+Bynle may update these terms with 30 days' notice. Continued use of the Service after changes constitutes acceptance.
+
+═══════════════════════════════════════════════
+10. GOVERNING LAW
+═══════════════════════════════════════════════
+
+These terms are governed by the laws of Ireland.
+
+═══════════════════════════════════════════════
+TODO
+═══════════════════════════════════════════════
+
+[ ] Get solicitor review before first paying client
+[ ] Add Data Processing Agreement (DPA) as appendix
+[ ] Create client-friendly summary version

@@ -1,0 +1,91 @@
+Bynle Competitive Landscape
+
+═══════════════════════════════════════════════
+PURPOSE
+═══════════════════════════════════════════════
+
+Know who else is in this space in Ireland. Not to copy them — to know how you're different when a prospect asks "why not just use X?"
+
+═══════════════════════════════════════════════
+DIRECT COMPETITORS (AI Chat / Automation for SMBs)
+═══════════════════════════════════════════════
+
+Competitor:
+Website:
+What they offer:
+Pricing:
+Target market:
+Strengths:
+Weaknesses:
+How we're different:
+
+----------------------------------------------
+
+Competitor:
+Website:
+What they offer:
+Pricing:
+Target market:
+Strengths:
+Weaknesses:
+How we're different:
+
+----------------------------------------------
+
+Competitor:
+Website:
+What they offer:
+Pricing:
+Target market:
+Strengths:
+Weaknesses:
+How we're different:
+
+═══════════════════════════════════════════════
+INDIRECT COMPETITORS
+═══════════════════════════════════════════════
+
+These aren't doing exactly what we do, but a prospect might compare us to them.
+
+Category: Generic chatbot tools (Tidio, Intercom, Drift)
+----------------------------------------------
+Why prospects consider them: They've heard of them. Big brand names.
+Why we win: They're generic. We're built specifically for Irish service businesses. No setup required from the client. We handle everything.
+
+Category: Web agencies offering "AI add-ons"
+----------------------------------------------
+Why prospects consider them: Their existing web agency offers to bolt on a chatbot.
+Why we win: We specialise in this. It's not an afterthought. Our system is purpose-built, not a WordPress plugin.
+
+Category: DIY tools (ChatGPT, etc.)
+----------------------------------------------
+Why prospects consider them: "Can't I just use ChatGPT?"
+Why we win: ChatGPT doesn't sit on your website, capture leads, integrate with your booking system, or run 24/7 without you touching it.
+
+═══════════════════════════════════════════════
+OUR POSITIONING
+═══════════════════════════════════════════════
+
+We are NOT:
+- A chatbot company
+- A web agency
+- A generic SaaS tool
+
+We ARE:
+- An AI automation partner for Irish service businesses
+- Vertical-specific (physio first, then professional services)
+- Done-for-you (client does almost nothing)
+- Focused on revenue impact (leads captured, bookings made)
+
+One-liner when asked:
+"We help physio clinics capture more bookings from their website using AI — it runs 24/7, answers patient questions, and sends you leads automatically."
+
+═══════════════════════════════════════════════
+RESEARCH TODO
+═══════════════════════════════════════════════
+
+[ ] Google "AI chatbot for clinics Ireland" — who shows up?
+[ ] Google "physiotherapy website chatbot" — who's advertising?
+[ ] Check what Tidio/Intercom charge for small business plans
+[ ] Ask early clients: "Did you look at anything else before talking to us?"
+[ ] Check LinkedIn for Irish AI agencies targeting SMBs

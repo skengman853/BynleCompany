@@ -1,0 +1,195 @@
+Branch: claudebotv2
+Date: 2026-02-25
+Author: Kiro (AI assistant)
+
+═══════════════════════════════════════════════
+SUMMARY
+═══════════════════════════════════════════════
+
+Deep refactor of the Bynle API codebase. Broke apart the monolithic server, deduplicated shared code, added production-readiness features, and created full company operations docs.
+
+═══════════════════════════════════════════════
+CHANGES — API REFACTOR
+═══════════════════════════════════════════════
+
+1. Split server.ts into route modules
+----------------------------------------------
+Before: Single 500+ line server.ts with all routes, middleware, and logic.
+After: Clean 40-line entry point that registers plugins and routes.
+
+New route files:
+- src/routes/chat.ts       — POST /v1/chat (RAG, billing, telemetry)
+- src/routes/leads.ts      — POST /v1/leads (lead capture + email notification)
+- src/routes/settings.ts   — GET/PUT /v1/settings
+- src/routes/faqs.ts       — CRUD /v1/faqs
+- src/routes/kb.ts         — Upload, list, delete knowledge base documents
+- src/routes/analytics.ts  — GET /v1/analytics
+- src/routes/monitoring.ts — Billing usage, observability, Prometheus metrics
+- src/routes/widget.ts     — GET /widget.js
+
+Each file is a Fastify plugin — isolated, testable, easy to find.
+
+2. Added rate limiting
+----------------------------------------------
+New file: src/rate-limit.ts
+
+- In-memory IP-based rate limiter as a Fastify plugin
+- Configurable via RATE_LIMIT_RPM env var (default: 60 req/min)
+- Returns 429 with x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset headers
+- Auto-sweeps expired entries to prevent memory leaks
+
+3. Standardised error responses
+----------------------------------------------
+New file: src/errors.ts
+
+- Every error now returns: { error: string, code: string, details?: unknown }
+- sendError() helper used across all routes
+- Global error handler catches unhandled errors and 404s
+- Auth errors use specific codes: AUTH_MISSING_TOKEN, AUTH_INVALID_TOKEN, AUTH_INSUFFICIENT_ROLE, etc.
+- Validation errors use VALIDATION_ERROR with Zod details
+- 500s never leak internal details to the client
+
+4. Lead notification emails
+----------------------------------------------
+New file: src/notifications.ts
+
+- sendLeadNotification() sends email to tenant's alertEmail when a lead is captured
+- Uses nodemailer with SMTP config from env vars
+- Gracefully skips if SMTP not configured or tenant has no alertEmail
+- Fire-and-forget — doesn't block the API response
+- Uses existing alertEmail field on Tenant model (no schema changes)
+
+New dependency: nodemailer + @types/nodemailer
+
+5. Deduplicated embeddings code
+----------------------------------------------
+Before: Identical embeddings code copy-pasted in apps/api and apps/worker.
+After: Single source of truth in packages/shared/src/embeddings/.
+
+- packages/shared/src/embeddings/types.ts   — EmbeddingVector, EmbeddingsProvider interface
+- packages/shared/src/embeddings/openai.ts  — OpenAI embeddings provider
+- packages/shared/src/embeddings/index.ts   — Factory, cosine similarity, vector parsing
+- apps/api/src/embeddings/index.ts          — Re-exports from @bynle/shared
+- apps/worker/src/embeddings/index.ts       — Re-exports from @bynle/shared
+
+Deleted 4 duplicate files.
+
+6. Widget tenant key injection
+----------------------------------------------
+Updated: apps/admin/app/dashboard/widget/page.tsx
+
+- Pulls tenant's latest API key from DB using session
+- Shows last 4 characters so they know which key (bynle_...ab12)
+- Uses actual API_BASE_URL from env instead of hardcoded localhost
+- Shows helpful message if no key exists yet
+
+7. Cleaned up settings route
+----------------------------------------------
+PUT /v1/settings had the same field list written twice (update + create).
+Simplified to use parsed.data directly with Prisma upsert.
+
+═══════════════════════════════════════════════
+CHANGES — CONFIG & CI
+═══════════════════════════════════════════════
+
+- .env.example: Added RATE_LIMIT_RPM, SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM
+- .github/workflows/ci.yml: Added v2 branch to CI triggers
+- packages/shared/package.json: Added openai dependency for shared embeddings
+- apps/api/package.json: Added nodemailer + @types/nodemailer
+- apps/worker/package.json: Added @bynle/shared dependency
+
+═══════════════════════════════════════════════
+CHANGES — COMPANY DOCS
+═══════════════════════════════════════════════
+
+Created 14 operational documents in docs/company/:
+
+Sales & Revenue:
+- sales-playbook.txt        — Outreach scripts, demo structure, objection handling, follow-up cadence
+- pricing-strategy.txt      — Three product tiers, consulting pricing, price testing plan
+- pipeline-tracker.txt      — Lead tracking with stages, weekly stats, targets
+
+Client Delivery:
+- onboarding-checklist.txt  — Step-by-step from "yes" to "live" in 48 hours
+- client-handoff.txt        — What client sees, what they provide, "you're live" email template
+- support-runbook.txt       — Common issues, severity levels, response templates
+
+Strategy & Tracking:
+- overview.txt              — (existing) Company strategy and vision
+- phase-gates.txt           — Concrete criteria for moving between phases
+- weekly-log.txt            — Friday check-in template (4 weeks ready)
+- competitive-landscape.txt — Competitor tracking framework + positioning
+- feature-roadmap.txt       — What exists vs. what's planned per phase
+
+Product:
+- known-issues.txt          — Bug tracker + pre-demo checklist
+
+Legal (drafts — need solicitor review):
+- terms-of-service.txt      — Working draft with TODOs
+- data-handling.txt          — GDPR-focused data policy with TODOs
+
+═══════════════════════════════════════════════
+FILES ADDED
+═══════════════════════════════════════════════
+
+apps/api/src/errors.ts
+apps/api/src/notifications.ts
+apps/api/src/rate-limit.ts
+apps/api/src/routes/analytics.ts
+apps/api/src/routes/chat.ts
+apps/api/src/routes/faqs.ts
+apps/api/src/routes/kb.ts
+apps/api/src/routes/leads.ts
+apps/api/src/routes/monitoring.ts
+apps/api/src/routes/settings.ts
+apps/api/src/routes/widget.ts
+packages/shared/src/embeddings/index.ts
+packages/shared/src/embeddings/openai.ts
+packages/shared/src/embeddings/types.ts
+docs/versions/claudebotv2.txt
+docs/company/ (14 files)
+
+═══════════════════════════════════════════════
+FILES MODIFIED
+═══════════════════════════════════════════════
+
+apps/api/src/server.ts              — Rewritten as clean entry point
+apps/api/src/admin-auth.ts          — Standardised error responses
+apps/api/src/embeddings/index.ts    — Re-exports from shared
+apps/worker/src/embeddings/index.ts — Re-exports from shared
+apps/admin/app/dashboard/widget/page.tsx — Tenant key injection
+apps/api/package.json               — Added nodemailer
+apps/worker/package.json            — Added @bynle/shared
+packages/shared/package.json        — Added openai
+packages/shared/src/index.ts        — Added embeddings export
+.env.example                        — Added SMTP + rate limit vars
+.github/workflows/ci.yml            — Added v2 branch
+
+═══════════════════════════════════════════════
+FILES DELETED
+═══════════════════════════════════════════════
+
+apps/api/src/embeddings/openai.ts   — Moved to shared
+apps/api/src/embeddings/types.ts    — Moved to shared
+apps/worker/src/embeddings/openai.ts — Moved to shared
+apps/worker/src/embeddings/types.ts  — Moved to shared
+
+═══════════════════════════════════════════════
+NOT CHANGED (intentionally)
+═══════════════════════════════════════════════
+
+- Prisma schema — no changes needed
+- Admin dashboard pages (except widget) — working fine
+- Worker logic — solid, just updated embeddings import
+- Auth flow — working correctly
+- Existing tests — still pass, imports still resolve
+- LLM provider code — no changes needed
+
+═══════════════════════════════════════════════
+SETUP AFTER MERGE
+═══════════════════════════════════════════════
+
+1. Run: npm install (picks up nodemailer + shared openai dep)
+2. Set SMTP env vars if you want lead email notifications
+3. Set alertEmail on tenants that should receive notifications
+4. Optionally set RATE_LIMIT_RPM (defaults to 60)

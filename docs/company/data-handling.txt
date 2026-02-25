@@ -1,0 +1,142 @@
+Bynle Data Handling Policy
+
+═══════════════════════════════════════════════
+NOTE
+═══════════════════════════════════════════════
+
+This is a working draft. Get legal review before going live with paying clients. GDPR compliance is mandatory for handling EU personal data.
+
+═══════════════════════════════════════════════
+1. ROLES
+═══════════════════════════════════════════════
+
+Data Controller: The Client (the physio clinic / business)
+→ They decide what data is collected and why.
+
+Data Processor: Bynle
+→ We process data on behalf of the Client to provide the Service.
+
+═══════════════════════════════════════════════
+2. WHAT DATA WE COLLECT
+═══════════════════════════════════════════════
+
+From website visitors (via chat widget):
+- Name
+- Email address
+- Phone number
+- Chat messages / questions asked
+- Timestamp of conversation
+- Page URL where chat was initiated
+
+From clients:
+- Clinic name, address, contact details
+- Logo and branding assets
+- FAQ content and service information
+- Booking system credentials (if applicable)
+
+═══════════════════════════════════════════════
+3. WHERE DATA IS STORED
+═══════════════════════════════════════════════
+
+- Cloud infrastructure (document hosting provider and region here)
+- Database: (document database type here)
+- Backups: (document backup location and frequency)
+
+TODO:
+[ ] Confirm all data stays within EU/EEA
+[ ] Document specific cloud provider and region
+[ ] Confirm backup encryption
+
+═══════════════════════════════════════════════
+4. HOW DATA IS USED
+═══════════════════════════════════════════════
+
+Visitor data is used to:
+- Respond to visitor questions via the chat widget
+- Capture lead information and send to the Client
+- Facilitate appointment bookings
+
+We do NOT:
+- Sell data to third parties
+- Use visitor data for marketing (unless explicitly consented)
+- Share data between tenants/clients
+- Use client data to train AI models without consent
+
+═══════════════════════════════════════════════
+5. DATA RETENTION
+═══════════════════════════════════════════════
+
+Active clients:
+- Chat logs retained for duration of subscription
+- Lead data retained for duration of subscription
+
+After cancellation:
+- Data retained for 30 days
+- Then permanently deleted
+- Client may request immediate deletion
+
+═══════════════════════════════════════════════
+6. SECURITY MEASURES
+═══════════════════════════════════════════════
+
+[ ] Data encrypted in transit (HTTPS/TLS)
+[ ] Data encrypted at rest
+[ ] Access restricted to authorised personnel only
+[ ] Multi-tenant isolation (clients cannot see each other's data)
+[ ] Regular security updates applied
+
+TODO:
+[ ] Document specific encryption standards
+[ ] Set up access logging
+[ ] Create incident response plan
+
+═══════════════════════════════════════════════
+7. GDPR RIGHTS
+═══════════════════════════════════════════════
+
+Website visitors have the right to:
+- Access their data
+- Request correction
+- Request deletion
+- Object to processing
+- Data portability
+
+Process: Visitor contacts the Client (Data Controller). Client contacts Bynle if action is needed on our systems. We respond within 72 hours.
+
+═══════════════════════════════════════════════
+8. DATA BREACH PROCEDURE
+═══════════════════════════════════════════════
+
+If a data breach occurs:
+1. Identify and contain the breach immediately
+2. Assess what data was affected
+3. Notify affected Clients within 24 hours
+4. Client notifies the DPC (Data Protection Commission) within 72 hours if required
+5. Document the breach and response
+6. Implement measures to prevent recurrence
+
+═══════════════════════════════════════════════
+9. SUB-PROCESSORS
+═══════════════════════════════════════════════
+
+Third parties that process data on our behalf:
+
+- Cloud hosting provider: (document here)
+- Email service (for notifications): (document here)
+- AI model provider: (document here)
+
+TODO:
+[ ] List all sub-processors
+[ ] Ensure each has adequate data protection agreements
+[ ] Notify clients of any sub-processor changes
+
+═══════════════════════════════════════════════
+10. TODO BEFORE FIRST PAYING CLIENT
+═══════════════════════════════════════════════
+
+[ ] Complete all TODOs in this document
+[ ] Get legal review
+[ ] Create a Data Processing Agreement (DPA) template
+[ ] Add privacy policy link to chat widget
+[ ] Ensure cookie consent if applicable
+[ ] Test data deletion process end-to-end

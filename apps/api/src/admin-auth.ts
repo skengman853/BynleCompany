@@ -1,6 +1,7 @@
 import type { FastifyReply, FastifyRequest } from "fastify";
 import { decode } from "@auth/core/jwt";
 import { prisma } from "@bynle/db";
+import type { ApiErrorResponse } from "./errors.js";
 
 export type AdminUserRole = "OWNER" | "STAFF";
 
@@ -18,33 +19,28 @@ const SESSION_COOKIE_NAMES = [
 ];
 const JWT_SALTS = SESSION_COOKIE_NAMES;
 
-function getHeaderValue(value: string | string[] | undefined): string | null {
-  if (!value) {
-    return null;
-  }
+function sendAuthError(reply: FastifyReply, status: number, error: string, code: string) {
+  reply.code(status).send({ error, code } satisfies ApiErrorResponse);
+}
 
+function getHeaderValue(value: string | string[] | undefined): string | null {
+  if (!value) return null;
   const raw = Array.isArray(value) ? value[0] : value;
   const normalized = raw.trim();
   return normalized.length > 0 ? normalized : null;
 }
 
 function getSessionTokenFromCookieHeader(header: string | null): string | null {
-  if (!header) {
-    return null;
-  }
+  if (!header) return null;
 
   const pieces = header.split(";");
   for (const piece of pieces) {
     const [nameRaw, ...valueParts] = piece.trim().split("=");
     const name = nameRaw?.trim();
-    if (!name || !SESSION_COOKIE_NAMES.includes(name)) {
-      continue;
-    }
+    if (!name || !SESSION_COOKIE_NAMES.includes(name)) continue;
 
     const value = valueParts.join("=").trim();
-    if (value) {
-      return decodeURIComponent(value);
-    }
+    if (value) return decodeURIComponent(value);
   }
 
   return null;
@@ -52,9 +48,7 @@ function getSessionTokenFromCookieHeader(header: string | null): string | null {
 
 function getSessionTokenFromRequest(request: FastifyRequest): string | null {
   const explicitToken = getHeaderValue(request.headers["x-authjs-session-token"]);
-  if (explicitToken) {
-    return explicitToken;
-  }
+  if (explicitToken) return explicitToken;
 
   const authHeader = getHeaderValue(request.headers.authorization);
   if (authHeader) {
@@ -65,37 +59,24 @@ function getSessionTokenFromRequest(request: FastifyRequest): string | null {
     return authHeader;
   }
 
-  const cookieHeader = getHeaderValue(request.headers.cookie);
-  return getSessionTokenFromCookieHeader(cookieHeader);
+  return getSessionTokenFromCookieHeader(getHeaderValue(request.headers.cookie));
 }
 
 function getAuthSecret(): string | null {
   const secret = process.env.AUTH_SECRET;
-  if (!secret || secret.trim().length === 0) {
-    return null;
-  }
+  if (!secret || secret.trim().length === 0) return null;
   return secret;
 }
 
-async function decodeAuthJwt(
-  token: string,
-  secret: string
-): Promise<Record<string, unknown> | null> {
+async function decodeAuthJwt(token: string, secret: string): Promise<Record<string, unknown> | null> {
   for (const salt of JWT_SALTS) {
     try {
-      const payload = await decode({
-        token,
-        secret,
-        salt
-      });
-      if (payload && typeof payload === "object") {
-        return payload as Record<string, unknown>;
-      }
+      const payload = await decode({ token, secret, salt });
+      if (payload && typeof payload === "object") return payload as Record<string, unknown>;
     } catch {
       // Try next salt variant.
     }
   }
-
   return null;
 }
 
@@ -106,54 +87,45 @@ export async function requireAdminAuth(
 ): Promise<AdminIdentity | null> {
   const sessionToken = getSessionTokenFromRequest(request);
   if (!sessionToken) {
-    reply.code(401).send({ error: "Missing auth session token" });
+    sendAuthError(reply, 401, "Missing auth session token", "AUTH_MISSING_TOKEN");
     return null;
   }
 
   const secret = getAuthSecret();
   if (!secret) {
-    reply.code(500).send({ error: "AUTH_SECRET is required for admin auth verification" });
+    sendAuthError(reply, 500, "AUTH_SECRET is required for admin auth verification", "AUTH_CONFIG_ERROR");
     return null;
   }
 
   const claims = await decodeAuthJwt(sessionToken, secret);
   if (!claims) {
-    reply.code(401).send({ error: "Invalid session token" });
+    sendAuthError(reply, 401, "Invalid session token", "AUTH_INVALID_TOKEN");
     return null;
   }
 
   const userId = typeof claims.sub === "string" ? claims.sub : null;
   const tenantId = typeof claims.tenantId === "string" ? claims.tenantId : null;
   const roleClaim = claims.role;
-  const role =
-    roleClaim === "OWNER" || roleClaim === "STAFF" ? (roleClaim as AdminUserRole) : null;
+  const role = roleClaim === "OWNER" || roleClaim === "STAFF" ? (roleClaim as AdminUserRole) : null;
 
   if (!userId || !tenantId || !role) {
-    reply.code(401).send({ error: "Session token is missing required claims" });
+    sendAuthError(reply, 401, "Session token is missing required claims", "AUTH_INCOMPLETE_CLAIMS");
     return null;
   }
 
   if (!allowedRoles.includes(role)) {
-    reply.code(403).send({ error: "Insufficient role for this action" });
+    sendAuthError(reply, 403, "Insufficient role for this action", "AUTH_INSUFFICIENT_ROLE");
     return null;
   }
 
   const user = await prisma.user.findFirst({
-    where: {
-      id: userId,
-      tenantId,
-      role
-    },
+    where: { id: userId, tenantId, role },
     select: { id: true }
   });
   if (!user) {
-    reply.code(401).send({ error: "Admin user not found" });
+    sendAuthError(reply, 401, "Admin user not found", "AUTH_USER_NOT_FOUND");
     return null;
   }
 
-  return {
-    tenantId,
-    userId,
-    role
-  };
+  return { tenantId, userId, role };
 }
