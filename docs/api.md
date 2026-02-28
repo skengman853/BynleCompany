@@ -10,6 +10,7 @@
 - `GET /widget.js`
 - `POST /v1/chat`
 - `POST /v1/leads`
+- `POST /v1/webhooks/calendly`
 - `GET /v1/settings`
 - `PUT /v1/settings`
 - `GET /v1/faqs`
@@ -20,6 +21,7 @@
 - `GET /v1/kb/documents`
 - `DELETE /v1/kb/documents/{id}`
 - `GET /v1/analytics`
+- `GET /v1/bookings`
 - `GET /v1/billing/usage`
 - `GET /v1/observability`
 - `GET /metrics`
@@ -83,7 +85,11 @@ Request
   "hours": "Mon-Fri 9-5",
   "acceptingNewClients": true,
   "holidayMessage": "Closed on July 4th",
-  "bookingUrl": "https://example.com/book"
+  "bookingUrl": "https://example.com/book",
+  "calendlyEnabled": true,
+  "calendlyApiToken": "cal_live_xxx",
+  "calendlyEventTypeUri": "https://api.calendly.com/event_types/xxxxxxxx",
+  "calendlyTimezone": "Europe/Dublin"
 }
 ```
 
@@ -91,6 +97,39 @@ Response
 ```json
 {
   "ok": true
+}
+```
+
+## Calendly Smart Booking Behavior
+- Booking is optional and tenant-configurable via settings.
+- When `calendlyEnabled` + `calendlyApiToken` + `calendlyEventTypeUri` are set, `/v1/chat` can:
+  - check availability in real time
+  - suggest top slots
+  - book selected option after user confirmation (`1`, `2`, or `3`)
+- Booking confirmation requires lead details (`name`, `email`, `phone`) before Calendly create call.
+- Availability endpoint uses Calendly's 7-day max window per request.
+
+## POST /v1/webhooks/calendly
+Webhook endpoint for Calendly sync events.
+
+- Supported events: `invitee.created`, `invitee.canceled` (also accepts `invitee.cancelled`)
+- Optional token gate: set `CALENDLY_WEBHOOK_TOKEN` and include `?token=<value>`
+- Signature verification uses `CALENDLY_WEBHOOK_SIGNING_KEY`
+- Replay protection stores signatures to reject duplicate deliveries
+
+Response (handled)
+```json
+{
+  "ok": true
+}
+```
+
+Response (ignored event)
+```json
+{
+  "ok": true,
+  "ignored": true,
+  "reason": "Unsupported or invalid Calendly event"
 }
 ```
 
@@ -153,6 +192,34 @@ Response
     }
   ]
 }
+```
+
+## GET /v1/bookings
+Returns latest tenant booking records.
+
+Optional query params:
+- `status=CONFIRMED|CANCELED`
+- `limit=<1..200>` (default `50`)
+
+Response
+```json
+[
+  {
+    "id": "cma123",
+    "status": "CONFIRMED",
+    "startTime": "2026-02-16T19:00:00.000Z",
+    "endTime": "2026-02-16T19:30:00.000Z",
+    "timezone": "America/New_York",
+    "inviteeName": "Jane Doe",
+    "inviteeEmail": "jane@example.com",
+    "inviteePhone": "+1-555-555-5555",
+    "cancelUrl": "https://calendly.com/cancellations/...",
+    "rescheduleUrl": "https://calendly.com/reschedulings/...",
+    "cancellationReason": null,
+    "createdAt": "2026-02-15T18:00:00.000Z",
+    "updatedAt": "2026-02-15T18:00:00.000Z"
+  }
+]
 ```
 
 ## GET /v1/billing/usage

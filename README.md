@@ -15,6 +15,7 @@ Multi-tenant chatbot platform with a client widget, tenant admin, and a policy-a
 - Lead capture + analytics basics
 - Admin portal for tenant self-service
 - Widget snippet for embed
+- Optional Calendly booking integration (tenant-toggleable)
 
 ## Local dev (outline)
 1. Copy `.env.example` to `.env` and fill values.

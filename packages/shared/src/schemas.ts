@@ -58,5 +58,33 @@ export const settingsUpdateSchema = z.object({
     },
     z.string().url().optional()
   ),
+  calendlyEnabled: z.boolean().optional(),
+  calendlyApiToken: z.preprocess(
+    (value) => {
+      if (typeof value === "string" && value.trim().length === 0) {
+        return undefined;
+      }
+      return value;
+    },
+    z.string().min(10).optional()
+  ),
+  calendlyEventTypeUri: z.preprocess(
+    (value) => {
+      if (typeof value === "string" && value.trim().length === 0) {
+        return undefined;
+      }
+      return value;
+    },
+    z.string().url().optional()
+  ),
+  calendlyTimezone: z.preprocess(
+    (value) => {
+      if (typeof value === "string" && value.trim().length === 0) {
+        return undefined;
+      }
+      return value;
+    },
+    z.string().min(2).max(100).optional()
+  ),
   emergencyMessage: z.string().optional()
 });

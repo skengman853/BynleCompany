@@ -11,6 +11,8 @@ import { faqRoutes } from "./routes/faqs.js";
 import { kbRoutes } from "./routes/kb.js";
 import { analyticsRoutes } from "./routes/analytics.js";
 import { billingRoutes, observabilityRoutes, metricsRoutes } from "./routes/monitoring.js";
+import { bookingRoutes } from "./routes/bookings.js";
+import { calendlyWebhookRoutes } from "./routes/webhooks.js";
 
 const app = Fastify({ logger: true });
 
@@ -34,9 +36,11 @@ app.register(settingsRoutes);
 app.register(faqRoutes);
 app.register(kbRoutes);
 app.register(analyticsRoutes);
+app.register(bookingRoutes);
 app.register(billingRoutes);
 app.register(observabilityRoutes);
 app.register(metricsRoutes);
+app.register(calendlyWebhookRoutes);
 
 // --- Start ---
 const port = Number(process.env.API_PORT ?? 4000);

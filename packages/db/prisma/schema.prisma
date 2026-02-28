@@ -49,6 +49,11 @@ enum ChatRequestStatus {
   BLOCKED
 }
 
+enum BookingStatus {
+  CONFIRMED
+  CANCELED
+}
+
 model Tenant {
   id                String      @id @default(cuid())
   name              String
@@ -73,6 +78,7 @@ model Tenant {
   auditLogs     AuditLog[]
   usageDaily    TenantUsageDaily[]
   chatTelemetry ChatTelemetry[]
+  bookings      Booking[]
 }
 
 model TenantApiKey {
@@ -104,16 +110,20 @@ model User {
 }
 
 model Settings {
-  tenantId            String   @id
-  businessName        String
-  phone               String
-  address             String
-  hours               String
-  acceptingNewClients Boolean  @default(true)
-  holidayMessage      String?
-  bookingUrl          String?
-  emergencyMessage    String?
-  updatedAt           DateTime @updatedAt
+  tenantId             String   @id
+  businessName         String
+  phone                String
+  address              String
+  hours                String
+  acceptingNewClients  Boolean  @default(true)
+  holidayMessage       String?
+  bookingUrl           String?
+  calendlyEnabled      Boolean  @default(false)
+  calendlyApiToken     String?
+  calendlyEventTypeUri String?
+  calendlyTimezone     String?
+  emergencyMessage     String?
+  updatedAt            DateTime @updatedAt
 
   tenant Tenant @relation(fields: [tenantId], references: [id])
 }
@@ -242,6 +252,47 @@ model ChatTelemetry {
   tenant Tenant @relation(fields: [tenantId], references: [id])
 
   @@index([tenantId, createdAt])
+}
+
+model Booking {
+  id                   String        @id @default(cuid())
+  tenantId             String
+  sessionId            String?
+  provider             String        @default("CALENDLY")
+  providerEventTypeUri String?
+  providerEventUri     String?
+  providerInviteeUri   String?       @unique
+  status               BookingStatus @default(CONFIRMED)
+  startTime            DateTime?
+  endTime              DateTime?
+  timezone             String?
+  inviteeName          String?
+  inviteeEmail         String?
+  inviteePhone         String?
+  cancelUrl            String?
+  rescheduleUrl        String?
+  canceledAt           DateTime?
+  cancellationReason   String?
+  rawPayload           Json?
+  createdAt            DateTime      @default(now())
+  updatedAt            DateTime      @updatedAt
+
+  tenant Tenant @relation(fields: [tenantId], references: [id])
+
+  @@index([tenantId, createdAt])
+  @@index([tenantId, status, createdAt])
+  @@index([providerEventUri])
+}
+
+model WebhookReceipt {
+  id        String   @id @default(cuid())
+  provider  String
+  signature String
+  timestamp Int
+  createdAt DateTime @default(now())
+
+  @@unique([provider, signature])
+  @@index([provider, createdAt])
 }
 
 model Job {

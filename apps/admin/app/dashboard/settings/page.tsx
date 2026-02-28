@@ -24,6 +24,10 @@ async function updateSettings(formData: FormData) {
     acceptingNewClients: formData.get("acceptingNewClients") === "on",
     holidayMessage: holidayMessage || undefined,
     bookingUrl: bookingUrl || undefined,
+    calendlyEnabled: formData.get("calendlyEnabled") === "on",
+    calendlyApiToken: String(formData.get("calendlyApiToken") ?? "").trim() || undefined,
+    calendlyEventTypeUri: String(formData.get("calendlyEventTypeUri") ?? "").trim() || undefined,
+    calendlyTimezone: String(formData.get("calendlyTimezone") ?? "").trim() || undefined,
     emergencyMessage: emergencyMessage || undefined
   };
 
@@ -121,6 +125,43 @@ export default async function SettingsPage() {
             name="bookingUrl"
             placeholder="https://example.com/book"
             defaultValue={settings?.bookingUrl ?? ""}
+          />
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="calendlyEnabled"
+            defaultChecked={settings?.calendlyEnabled ?? false}
+          />
+          Enable Calendly smart booking
+        </label>
+        <label>
+          Calendly Personal Access Token
+          <input
+            className="input"
+            type="password"
+            name="calendlyApiToken"
+            autoComplete="off"
+            placeholder="cal_live_xxx"
+            defaultValue={settings?.calendlyApiToken ?? ""}
+          />
+        </label>
+        <label>
+          Calendly Event Type URI
+          <input
+            className="input"
+            name="calendlyEventTypeUri"
+            placeholder="https://api.calendly.com/event_types/xxxxxxxx"
+            defaultValue={settings?.calendlyEventTypeUri ?? ""}
+          />
+        </label>
+        <label>
+          Calendly Timezone
+          <input
+            className="input"
+            name="calendlyTimezone"
+            placeholder="Europe/Dublin"
+            defaultValue={settings?.calendlyTimezone ?? ""}
           />
         </label>
         <label>

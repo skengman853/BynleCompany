@@ -8,6 +8,7 @@ import { detectEmergency } from "../policy.js";
 import { enforceChatAllowance, incrementTenantUsageDaily } from "../billing.js";
 import { recordChatTelemetry } from "../observability.js";
 import { sendError } from "../errors.js";
+import { maybeHandleBooking } from "../booking/index.js";
 
 export async function chatRoutes(app: FastifyInstance) {
   app.post("/v1/chat", async (request, reply) => {
@@ -85,6 +86,32 @@ export async function chatRoutes(app: FastifyInstance) {
       ]);
 
       return emergencyReply;
+    }
+
+    const bookingResponse = await maybeHandleBooking({
+      tenantId,
+      sessionId,
+      message
+    });
+    if (bookingResponse) {
+      await prisma.message.create({
+        data: { tenantId, conversationId: conversation.id, role: "assistant", content: bookingResponse.replyText }
+      });
+
+      await Promise.allSettled([
+        incrementTenantUsageDaily({ tenantId, chatCount: 1 }),
+        recordChatTelemetry({
+          tenantId,
+          sessionId,
+          conversationId: conversation.id,
+          status: "SUCCESS",
+          latencyMs: Date.now() - startedAt,
+          contextItems: 0,
+          kbContextItems: 0
+        })
+      ]);
+
+      return bookingResponse;
     }
 
     const context = await buildContext(tenantId, message);

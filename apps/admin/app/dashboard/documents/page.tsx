@@ -96,7 +96,7 @@ export default async function DocumentsPage() {
       <h1>Documents</h1>
       <p className="helper">Upload PDFs, DOCX, or TXT for your knowledge base.</p>
 
-      <form className="form" action={uploadDocument} encType="multipart/form-data">
+      <form className="form" action={uploadDocument}>
         <label>
           File
           <input className="input" type="file" name="file" accept=".pdf,.docx,.txt" required />

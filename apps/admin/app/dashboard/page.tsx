@@ -27,6 +27,9 @@ export default async function DashboardPage() {
         <a className="button secondary" href="/dashboard/observability">
           Observability
         </a>
+        <a className="button secondary" href="/dashboard/bookings">
+          Bookings
+        </a>
         <a className="button secondary" href="/dashboard/widget">
           Widget
         </a>
