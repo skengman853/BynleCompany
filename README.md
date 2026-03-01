@@ -1,53 +1,45 @@
-# Bynle
+# BynleCompany
 
-Multi-tenant chatbot platform with a client widget, tenant admin, and a policy-aware chat API.
+Core Bynle platform repo: chatbot product code, internal operations docs, and runbooks.
 
-## Repo structure
-- `docs/` Product, architecture, API, and data model specs.
+## Repo Boundary
+- This repo owns backend/product/internal documentation and deployment runbooks.
+- `bynle-technologies` owns the public marketing website and customer-facing website content.
+
+## Directory Map
 - `apps/admin/` Next.js admin dashboard (Auth.js).
-- `apps/api/` Fastify API + chat orchestration.
-- `packages/db/` Prisma schema + client.
-- `packages/shared/` Shared types and validation.
+- `apps/api/` Fastify API and chat orchestration.
+- `apps/worker/` background ingestion and processing worker.
+- `packages/db/` Prisma schema, client, and DB scripts.
+- `packages/shared/` shared types and validation.
+- `tests/` API integration checks and regression tests.
+- `docs/` product, architecture, company ops, deployment, and historical notes.
+- `chat_errors/` local captured chat error samples for debugging.
 
-## MVP scope (initial)
-- Tenant settings + FAQs + document upload (PDF/TXT)
-- Chat endpoint with RAG over tenant content
-- Lead capture + analytics basics
-- Admin portal for tenant self-service
-- Widget snippet for embed
-- Optional Calendly booking integration (tenant-toggleable)
+Docs index: `docs/README.md`
 
-## Local dev (outline)
+## Local Dev
 1. Copy `.env.example` to `.env` and fill values.
-1. Install dependencies (npm, pnpm, or yarn).
-1. Generate Prisma client: `npx prisma generate --schema packages/db/prisma/schema.prisma`
-1. Push schema: `npm run db:push -w packages/db`
-1. Run `npm run dev:admin`, `npm run dev:api`, and `npm run dev:worker` in separate terminals.
+2. Install dependencies.
+3. Generate Prisma client: `npx prisma generate --schema packages/db/prisma/schema.prisma`
+4. Push schema: `npm run db:push -w packages/db`
+5. Run `npm run dev:admin`, `npm run dev:api`, and `npm run dev:worker` in separate terminals.
 
-## Auth bootstrap
+## Auth Bootstrap
 1. Run Prisma migrations or `npm run db:push -w packages/db`.
-1. Create an owner user and tenant key:
-   `node packages/db/scripts/create-admin.mjs <email> <password> [tenantName]`
-1. If you need a new key for an existing tenant:
-   `node packages/db/scripts/create-tenant-key.mjs <ownerEmail> [label]`
-1. To adjust billing plan/limits:
-   `node packages/db/scripts/set-tenant-plan.mjs <ownerEmail> <STARTER|PRO|ENTERPRISE> [chatLimit] [tokenLimit] [hardLimit:true|false]`
-1. If ingestion jobs get stuck after schema changes:
-   `node packages/db/scripts/requeue-pending-docs.mjs [tenantId]`
-1. Use the printed tenant key in the widget config.
-
-## Admin/API auth
-- Admin routes call API using the Auth.js session token (`x-authjs-session-token`).
-- API decrypts/verifies the Auth.js JWT using `AUTH_SECRET`, then enforces user/tenant/role checks.
-
-## Quality gates
-- Run checks locally: `npm run ci`
-- CI workflow: `.github/workflows/ci.yml`
+2. Create an owner user and tenant key: `node packages/db/scripts/create-admin.mjs <email> <password> [tenantName]`
+3. Create a new key for an existing tenant: `node packages/db/scripts/create-tenant-key.mjs <ownerEmail> [label]`
+4. Adjust billing plan/limits: `node packages/db/scripts/set-tenant-plan.mjs <ownerEmail> <STARTER|PRO|ENTERPRISE> [chatLimit] [tokenLimit] [hardLimit:true|false]`
+5. Requeue pending ingestion docs if needed: `node packages/db/scripts/requeue-pending-docs.mjs [tenantId]`
 
 ## Deployment
 - Render runbook (database + backend + admin): `docs/deployment-render.md`
 
-## Widget install
+## Quality Gates
+- Run local checks: `npm run ci`
+- CI workflow: `.github/workflows/ci.yml`
+
+## Widget Install
 Serve script from API:
 - `http://localhost:4000/widget.js`
 
