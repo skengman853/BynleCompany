@@ -9,11 +9,14 @@
     "node": ">=20"
   },
   "scripts": {
-    "dev:admin": "npm run dev -w apps/admin",
-    "dev:api": "npm run dev -w apps/api",
-    "dev:worker": "npm run dev -w apps/worker",
+    "dev:admin-web": "npm run dev -w apps/admin-web",
+    "dev:assist-api": "npm run dev -w apps/assist-api",
+    "dev:assist-worker": "npm run dev -w apps/assist-worker",
+    "dev:admin": "npm run dev:admin-web",
+    "dev:api": "npm run dev:assist-api",
+    "dev:worker": "npm run dev:assist-worker",
     "lint": "npm run typecheck",
-    "typecheck": "npm run typecheck -w apps/api && npm run typecheck -w apps/worker",
+    "typecheck": "npm run typecheck -w apps/assist-api && npm run typecheck -w apps/assist-worker",
     "test": "node --test --import tsx \"tests/**/*.test.ts\"",
     "ci": "npm run typecheck && npm run test"
   },

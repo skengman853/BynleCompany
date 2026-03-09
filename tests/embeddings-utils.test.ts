@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { cosineSimilarity, parseEmbeddingVector } from "../apps/api/src/embeddings";
+import { cosineSimilarity, parseEmbeddingVector } from "../apps/assist-api/src/embeddings";
 
 test("parseEmbeddingVector returns numeric vectors and rejects invalid values", () => {
   assert.deepEqual(parseEmbeddingVector([0.1, 0.2, 0.3]), [0.1, 0.2, 0.3]);

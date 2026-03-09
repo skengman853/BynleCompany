@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { evaluateAllowance } from "../apps/api/src/billing-policy";
+import { evaluateAllowance } from "../apps/assist-api/src/billing-policy";
 
 test("allows chat when limits are available", () => {
   const result = evaluateAllowance(

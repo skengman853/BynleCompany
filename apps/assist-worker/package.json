@@ -1,5 +1,5 @@
 {
-  "name": "@bynle/worker",
+  "name": "@bynle/assist-worker",
   "version": "0.1.0",
   "private": true,
   "type": "module",

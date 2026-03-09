@@ -28,14 +28,14 @@ This repo is now a working multi-tenant chatbot platform with:
 - Observability page.
 
 Main admin routes:
-- `apps/admin/app/dashboard/page.tsx`
-- `apps/admin/app/dashboard/settings/page.tsx`
-- `apps/admin/app/dashboard/faqs/page.tsx`
-- `apps/admin/app/dashboard/documents/page.tsx`
-- `apps/admin/app/dashboard/analytics/page.tsx`
-- `apps/admin/app/dashboard/billing/page.tsx`
-- `apps/admin/app/dashboard/observability/page.tsx`
-- `apps/admin/app/dashboard/widget/page.tsx`
+- `apps/admin-web/app/dashboard/page.tsx`
+- `apps/admin-web/app/dashboard/settings/page.tsx`
+- `apps/admin-web/app/dashboard/faqs/page.tsx`
+- `apps/admin-web/app/dashboard/documents/page.tsx`
+- `apps/admin-web/app/dashboard/analytics/page.tsx`
+- `apps/admin-web/app/dashboard/billing/page.tsx`
+- `apps/admin-web/app/dashboard/observability/page.tsx`
+- `apps/admin-web/app/dashboard/widget/page.tsx`
 
 ### 3. Real admin->API session verification
 - Admin now sends Auth.js session token header (`x-authjs-session-token`).
@@ -43,9 +43,9 @@ Main admin routes:
 - API then validates user/tenant/role against DB.
 
 Auth files:
-- `apps/admin/auth.ts`
-- `apps/admin/lib/adminApiAuth.ts`
-- `apps/api/src/admin-auth.ts`
+- `apps/admin-web/auth.ts`
+- `apps/admin-web/lib/adminApiAuth.ts`
+- `apps/assist-api/src/admin-auth.ts`
 
 ### 4. Chat pipeline upgrades
 - RAG context includes tenant settings + active FAQs + indexed document chunks.
@@ -54,10 +54,10 @@ Auth files:
 - Structured LLM output with action routing.
 
 Core chat files:
-- `apps/api/src/server.ts`
-- `apps/api/src/rag.ts`
-- `apps/api/src/llm/openai.ts`
-- `apps/api/src/policy.ts`
+- `apps/assist-api/src/server.ts`
+- `apps/assist-api/src/rag.ts`
+- `apps/assist-api/src/llm/openai.ts`
+- `apps/assist-api/src/policy.ts`
 
 ### 5. Document ingestion and indexing
 - Upload endpoint stores file and queues ingestion job.
@@ -67,10 +67,10 @@ Core chat files:
 - Delete endpoint removes doc, chunks, pending/running jobs, and local file.
 
 Ingestion files:
-- `apps/api/src/jobs.ts`
-- `apps/worker/src/worker.ts`
-- `apps/worker/src/ingestion.ts`
-- `apps/worker/src/embeddings/index.ts`
+- `apps/assist-api/src/jobs.ts`
+- `apps/assist-worker/src/worker.ts`
+- `apps/assist-worker/src/ingestion.ts`
+- `apps/assist-worker/src/embeddings/index.ts`
 
 ### 6. Billing and usage enforcement
 - Tenant-level monthly limits supported in schema.
@@ -79,8 +79,8 @@ Ingestion files:
 - Daily usage counters track chats/tokens/errors/rate-limit events.
 
 Billing files:
-- `apps/api/src/billing.ts`
-- `apps/api/src/billing-policy.ts`
+- `apps/assist-api/src/billing.ts`
+- `apps/assist-api/src/billing-policy.ts`
 - `packages/db/scripts/set-tenant-plan.mjs`
 
 ### 7. Observability
@@ -97,8 +97,8 @@ Billing files:
 - Added simple metrics endpoint for scraping.
 
 Observability files:
-- `apps/api/src/observability.ts`
-- `apps/api/src/server.ts` (`/v1/observability`, `/metrics`)
+- `apps/assist-api/src/observability.ts`
+- `apps/assist-api/src/server.ts` (`/v1/observability`, `/metrics`)
 
 ### 8. Tests and CI gates
 - Added backend unit tests for:
@@ -149,9 +149,9 @@ From repo root:
 1. `npx prisma generate --schema packages/db/prisma/schema.prisma`
 2. `npm run db:push -w packages/db`
 3. Run three terminals:
-   - `npm run dev:api`
-   - `npm run dev:worker`
-   - `npm run dev:admin`
+   - `npm run dev:assist-api`
+   - `npm run dev:assist-worker`
+   - `npm run dev:admin-web`
 
 ## Bootstrap scripts
 

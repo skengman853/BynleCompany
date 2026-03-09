@@ -1,5 +1,5 @@
 {
-  "name": "@bynle/admin",
+  "name": "@bynle/admin-web",
   "version": "0.1.0",
   "private": true,
   "type": "module",
