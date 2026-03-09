@@ -12,7 +12,7 @@ Deployable runtime services live in this directory.
 - `flow-worker/`
 - `tasks-api/`
 - `tasks-worker/`
-- `docs-api/`
-- `docs-worker/`
+- `docs-api/` planned API service for Bynle Docs, now with build spec in its README.
+- `docs-worker/` planned background worker for Bynle Docs, now with build spec in its README.
 
 Placeholders exist so module boundaries are explicit before implementation.

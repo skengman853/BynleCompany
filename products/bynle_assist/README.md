@@ -15,3 +15,6 @@ Website assistant for customer enquiries, lead capture, and booking handoff.
 ## Exit Criteria
 - Reliable onboarding and deployment process.
 - Repeatable close and implementation workflow.
+
+## Canonical product doc
+- `docs/products/bynle-assist.md`

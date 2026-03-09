@@ -7,6 +7,7 @@ Canonical documentation for the BynleCompany repo.
 - `architecture.md` system-level architecture and data flow.
 - `data-model.md` storage model and schema notes.
 - `product.md` product framing and scope.
+- `products/` canonical per-product specs for Assist, Flow, Tasks, and Docs.
 - `roadmap.md` product roadmap details.
 - `deployment-render.md` deployment runbook for Render.
 - `implementation-summary.md` implementation snapshot.

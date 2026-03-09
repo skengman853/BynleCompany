@@ -11,3 +11,6 @@ Extract actionable tasks from notes, emails, and CRM activity.
 ## Status
 - Planned module.
 - Validate demand from active clients before implementation.
+
+## Canonical product doc
+- `docs/products/bynle-tasks.md`

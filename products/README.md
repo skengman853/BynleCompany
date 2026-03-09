@@ -11,3 +11,4 @@ This directory defines Bynle product modules at the business/product level.
 ## Rule
 - Keep this folder focused on module definition, scope, packaging, and rollout.
 - Runtime implementation stays in `apps/` and shared code in `packages/`.
+- Canonical per-product specs live in `docs/products/`.
