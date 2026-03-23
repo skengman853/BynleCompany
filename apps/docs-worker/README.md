@@ -3,6 +3,12 @@
 Status: planned, not implemented.
 
 Canonical module spec: `docs/products/bynle-docs.md`
+Detailed build docs:
+
+- `docs/products/bynle-docs/v1-product-spec.md`
+- `docs/products/bynle-docs/v1-api.md`
+- `docs/products/bynle-docs/v1-data-model.md`
+- `docs/products/bynle-docs/v1-delivery-plan.md`
 
 ## Purpose
 

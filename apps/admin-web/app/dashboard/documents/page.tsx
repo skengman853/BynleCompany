@@ -90,11 +90,14 @@ export default async function DocumentsPage() {
 
   return (
     <div className="card">
-      <a className="button secondary" href="/dashboard" style={{ marginBottom: 16 }}>
-        Back to Dashboard
+      <a className="button secondary" href="/dashboard/assist" style={{ marginBottom: 16 }}>
+        Back to Bynle Assist
       </a>
-      <h1>Documents</h1>
-      <p className="helper">Upload PDFs, DOCX, or TXT for your knowledge base.</p>
+      <h1>Knowledge Base</h1>
+      <p className="helper">
+        Upload PDFs, DOCX, or TXT for the Assist chatbot knowledge base. This is separate from
+        Bynle Docs client document requests.
+      </p>
 
       <form className="form" action={uploadDocument}>
         <label>
@@ -102,7 +105,7 @@ export default async function DocumentsPage() {
           <input className="input" type="file" name="file" accept=".pdf,.docx,.txt" required />
         </label>
         <button className="button" type="submit">
-          Upload document
+          Upload knowledge-base document
         </button>
       </form>
 
@@ -118,7 +121,7 @@ export default async function DocumentsPage() {
             <form action={deleteDocument} style={{ marginTop: 10 }}>
               <input type="hidden" name="id" value={doc.id} />
               <button className="button secondary" type="submit">
-                Delete document
+                Delete file
               </button>
             </form>
           </div>

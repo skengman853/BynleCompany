@@ -34,5 +34,9 @@ The first release should solve:
 
 ## Canonical implementation docs
 - `docs/products/bynle-docs.md`
+- `docs/products/bynle-docs/v1-product-spec.md`
+- `docs/products/bynle-docs/v1-api.md`
+- `docs/products/bynle-docs/v1-data-model.md`
+- `docs/products/bynle-docs/v1-delivery-plan.md`
 - `apps/docs-api/README.md`
 - `apps/docs-worker/README.md`

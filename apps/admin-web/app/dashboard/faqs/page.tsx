@@ -121,8 +121,8 @@ export default async function FaqPage() {
 
   return (
     <div className="card">
-      <a className="button secondary" href="/dashboard" style={{ marginBottom: 16 }}>
-        Back to Dashboard
+      <a className="button secondary" href="/dashboard/assist" style={{ marginBottom: 16 }}>
+        Back to Bynle Assist
       </a>
       <h1>FAQs</h1>
       <p className="helper">Manage your top questions and answers.</p>

@@ -30,8 +30,44 @@ enum BillingPlan {
   ENTERPRISE
 }
 
+enum DocsRequestStatus {
+  DRAFT
+  SENT
+  IN_PROGRESS
+  COMPLETED
+  OVERDUE
+  CANCELED
+}
+
+enum DocsRequestItemStatus {
+  PENDING
+  UPLOADED
+  APPROVED
+  REJECTED
+  WAIVED
+}
+
+enum DocsFileStatus {
+  RECEIVED
+  PROCESSING
+  READY
+  REJECTED
+  DELETED
+}
+
+enum DocsActorType {
+  SYSTEM
+  STAFF
+  CLIENT
+}
+
 enum JobType {
   INGEST_DOCUMENT
+  SEND_DOC_REQUEST
+  SEND_DOC_REMINDER
+  PROCESS_DOC_UPLOAD
+  MARK_DOC_REQUEST_OVERDUE
+  NOTIFY_DOC_REQUEST_COMPLETE
 }
 
 enum JobStatus {
@@ -79,6 +115,10 @@ model Tenant {
   usageDaily    TenantUsageDaily[]
   chatTelemetry ChatTelemetry[]
   bookings      Booking[]
+  docsTemplates DocsTemplate[]
+  docsRequests  DocsRequest[]
+  docsFiles     DocsFile[]
+  docsEvents    DocsEvent[]
 }
 
 model TenantApiKey {
@@ -107,6 +147,9 @@ model User {
   accounts  Account[]
   sessions  Session[]
   auditLogs AuditLog[]
+  docsTemplatesCreated    DocsTemplate[]    @relation("DocsTemplateCreatedBy")
+  docsRequestsCreated     DocsRequest[]     @relation("DocsRequestCreatedBy")
+  docsRequestItemsApproved DocsRequestItem[] @relation("DocsRequestItemApprovedBy")
 }
 
 model Settings {
@@ -293,6 +336,162 @@ model WebhookReceipt {
 
   @@unique([provider, signature])
   @@index([provider, createdAt])
+}
+
+model DocsTemplate {
+  id              String   @id @default(cuid())
+  tenantId        String
+  name            String
+  description     String?
+  isActive        Boolean  @default(true)
+  createdByUserId String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  tenant        Tenant              @relation(fields: [tenantId], references: [id])
+  createdByUser User                @relation("DocsTemplateCreatedBy", fields: [createdByUserId], references: [id])
+  items         DocsTemplateItem[]
+  requests      DocsRequest[]
+
+  @@unique([tenantId, name])
+  @@index([tenantId, createdAt])
+}
+
+model DocsTemplateItem {
+  id                String   @id @default(cuid())
+  templateId        String
+  label             String
+  instructions      String?
+  isRequired        Boolean  @default(true)
+  acceptedMimeTypes Json
+  maxFiles          Int      @default(1)
+  sortOrder         Int
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  template     DocsTemplate      @relation(fields: [templateId], references: [id], onDelete: Cascade)
+  requestItems DocsRequestItem[]
+
+  @@index([templateId, sortOrder])
+}
+
+model DocsRequest {
+  id              String            @id @default(cuid())
+  tenantId        String
+  templateId      String?
+  title           String
+  clientName      String
+  clientEmail     String
+  clientPhone     String?
+  customMessage   String?
+  status          DocsRequestStatus @default(DRAFT)
+  dueAt           DateTime
+  sentAt          DateTime?
+  lastReminderAt  DateTime?
+  completedAt     DateTime?
+  canceledAt      DateTime?
+  createdByUserId String
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  tenant        Tenant           @relation(fields: [tenantId], references: [id])
+  template      DocsTemplate?    @relation(fields: [templateId], references: [id])
+  createdByUser User             @relation("DocsRequestCreatedBy", fields: [createdByUserId], references: [id])
+  items         DocsRequestItem[]
+  files         DocsFile[]
+  uploadLinks   DocsUploadLink[]
+  events        DocsEvent[]
+
+  @@index([tenantId, status, dueAt])
+  @@index([tenantId, clientEmail])
+  @@index([tenantId, createdAt])
+}
+
+model DocsRequestItem {
+  id               String                @id @default(cuid())
+  requestId        String
+  templateItemId   String?
+  label            String
+  instructions     String?
+  isRequired       Boolean               @default(true)
+  status           DocsRequestItemStatus @default(PENDING)
+  acceptedMimeTypes Json
+  maxFiles         Int                   @default(1)
+  sortOrder        Int
+  approvedAt       DateTime?
+  approvedByUserId String?
+  rejectionReason  String?
+  createdAt        DateTime              @default(now())
+  updatedAt        DateTime              @updatedAt
+
+  request        DocsRequest       @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  templateItem   DocsTemplateItem? @relation(fields: [templateItemId], references: [id])
+  approvedByUser User?             @relation("DocsRequestItemApprovedBy", fields: [approvedByUserId], references: [id])
+  files          DocsFile[]
+  events         DocsEvent[]
+
+  @@index([requestId, sortOrder])
+  @@index([requestId, status])
+}
+
+model DocsFile {
+  id                  String         @id @default(cuid())
+  tenantId            String
+  requestId           String
+  requestItemId       String
+  storageKey          String         @unique
+  originalFilename    String
+  mimeType            String
+  sizeBytes           Int
+  checksum            String?
+  status              DocsFileStatus @default(RECEIVED)
+  uploadedByActorType DocsActorType
+  uploadedByActorId   String?
+  uploadedAt          DateTime       @default(now())
+  deletedAt           DateTime?
+
+  tenant      Tenant          @relation(fields: [tenantId], references: [id])
+  request     DocsRequest     @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  requestItem DocsRequestItem @relation(fields: [requestItemId], references: [id], onDelete: Cascade)
+  events      DocsEvent[]
+
+  @@index([tenantId, requestId, uploadedAt])
+  @@index([requestItemId, status])
+}
+
+model DocsUploadLink {
+  id             String   @id @default(cuid())
+  requestId      String
+  tokenHash      String   @unique
+  expiresAt      DateTime?
+  revokedAt      DateTime?
+  lastAccessedAt DateTime?
+  createdAt      DateTime @default(now())
+
+  request DocsRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+
+  @@index([requestId, createdAt])
+}
+
+model DocsEvent {
+  id            String   @id @default(cuid())
+  tenantId      String
+  requestId     String
+  requestItemId String?
+  fileId        String?
+  eventType     String
+  actorType     DocsActorType
+  actorId       String?
+  payload       Json?
+  createdAt     DateTime @default(now())
+
+  tenant      Tenant           @relation(fields: [tenantId], references: [id])
+  request     DocsRequest      @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  requestItem DocsRequestItem? @relation(fields: [requestItemId], references: [id])
+  file        DocsFile?        @relation(fields: [fileId], references: [id])
+
+  @@index([tenantId, requestId, createdAt])
+  @@index([requestId, eventType, createdAt])
 }
 
 model Job {

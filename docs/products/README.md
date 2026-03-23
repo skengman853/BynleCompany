@@ -4,6 +4,7 @@ Canonical per-product specs live here.
 
 ## Modules
 - `bynle-assist.md`
+- `bynle-docs/`
 - `bynle-flow.md`
 - `bynle-tasks.md`
 - `bynle-docs.md`

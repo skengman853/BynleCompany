@@ -42,8 +42,8 @@ export default async function BillingPage() {
 
   return (
     <div className="card">
-      <a className="button secondary" href="/dashboard" style={{ marginBottom: 16 }}>
-        Back to Dashboard
+      <a className="button secondary" href="/dashboard/assist" style={{ marginBottom: 16 }}>
+        Back to Bynle Assist
       </a>
       <h1>Billing & Usage</h1>
       <p className="helper">Current monthly usage against plan limits.</p>

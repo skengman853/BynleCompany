@@ -27,6 +27,7 @@ Products index: `products/README.md`
 3. Generate Prisma client: `npx prisma generate --schema packages/db/prisma/schema.prisma`
 4. Push schema: `npm run db:push -w packages/db`
 5. Run `npm run dev:admin-web`, `npm run dev:assist-api`, and `npm run dev:assist-worker` in separate terminals.
+6. For Bynle Docs work, also run `npm run dev:docs-api` and `npm run dev:docs-worker`.
 
 ## Auth Bootstrap
 1. Run Prisma migrations or `npm run db:push -w packages/db`.

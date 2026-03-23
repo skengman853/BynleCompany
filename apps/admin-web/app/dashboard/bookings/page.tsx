@@ -38,8 +38,8 @@ export default async function BookingsPage() {
 
   return (
     <div className="card">
-      <a className="button secondary" href="/dashboard" style={{ marginBottom: 16 }}>
-        Back to Dashboard
+      <a className="button secondary" href="/dashboard/assist" style={{ marginBottom: 16 }}>
+        Back to Bynle Assist
       </a>
       <h1>Bookings</h1>
       <p className="helper">Calendly-confirmed appointments synced to Bynle.</p>
@@ -88,4 +88,3 @@ export default async function BookingsPage() {
     </div>
   );
 }
-
